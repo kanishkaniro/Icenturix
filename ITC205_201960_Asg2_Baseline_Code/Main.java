@@ -12,7 +12,7 @@ public class Main {
 	
 	
 	private static String Get_menu() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningfull name
 		
 		sb.append("\nLibrary Main Menu\n\n")
 		  .append("  M  : add member\n")
