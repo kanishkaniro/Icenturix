@@ -39,10 +39,10 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = library.INSTANCE();
-			CAL = Calendar.INSTANCE();
-			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			scanner = new Scanner(System.in); // variable names are to start with a lowercase letter and to be in camelBack
+			library = Library.INSTANCE(); // variable names are to start with a lowercase letter and to be in camelBack
+			calendar = Calendar.INSTANCE(); // variable names are to start with a lowercase letter and to be in camelBack
+			simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // variable names are to start with a lowercase letter and to be in camelBack
 	
 			for (member m : LIB.MEMBERS()) {
 				output(m);
