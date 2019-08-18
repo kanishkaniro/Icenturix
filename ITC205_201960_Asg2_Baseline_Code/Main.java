@@ -120,12 +120,12 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void FINES() {
+		private static void fines() { // method names are to start with a lowercase letter and to be in camelBack
 		new PayFineUI(new PayFineControl()).RuN();		
 	}
 
 
-	private static void CURRENT_LOANS() {
+	private static void currentLoans() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (loan loan : LIB.CurrentLoans()) {
 			output(loan + "\n");
@@ -134,7 +134,7 @@ public class Main {
 
 
 
-	private static void BOOKS() {
+	private static void listBooks() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (book book : LIB.BOOKS()) {
 			output(book + "\n");
@@ -143,7 +143,7 @@ public class Main {
 
 
 
-	private static void MEMBERS() {
+	private static void listMembers() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (member member : LIB.MEMBERS()) {
 			output(member + "\n");
@@ -152,22 +152,22 @@ public class Main {
 
 
 
-	private static void BORROW_BOOK() {
+	private static void borrowBook() { // method names are to start with a lowercase letter and to be in camelBack
 		new BorrowBookUI(new BorrowBookControl()).run();		
 	}
 
 
-	private static void RETURN_BOOK() {
+	private static void returnBook() { // method names are to start with a lowercase letter and to be in camelBack
 		new ReturnBookUI(new ReturnBookControl()).RuN();		
 	}
 
 
-	private static void FIX_BOOKS() {
+	private static void fixBooks() { // method names are to start with a lowercase letter and to be in camelBack
 		new FixBookUI(new FixBookControl()).RuN();		
 	}
 
 
-	private static void INCREMENT_DATE() {
+	private static void incrementDate() { // method names are to start with a lowercase letter and to be in camelBack
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
@@ -180,7 +180,7 @@ public class Main {
 	}
 
 
-	private static void ADD_BOOK() {
+	private static void addBook() { // method names are to start with a lowercase letter and to be in camelBack
 		
 		String A = input("Enter author: ");
 		String T  = input("Enter title: ");
@@ -191,7 +191,7 @@ public class Main {
 	}
 
 	
-	private static void ADD_MEMBER() {
+	private static void addMember() { // method names are to start with a lowercase letter and to be in camelBack
 		try {
 			String LN = input("Enter last name: ");
 			String FN  = input("Enter first name: ");
