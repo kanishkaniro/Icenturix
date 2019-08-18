@@ -163,7 +163,7 @@ public class Main {
 
 
 	private static void fixBooks() { // method names are to start with a lowercase letter and to be in camelBack
-		new FixBookUI(new FixBookControl()).run();// 	
+		new FixBookUI(new FixBookControl()).run();// RuN changed to run
 	}
 
 
@@ -193,12 +193,12 @@ public class Main {
 	
 	private static void addMember() { // method names are to start with a lowercase letter and to be in camelBack
 		try {
-			String LN = input("Enter last name: ");
-			String FN  = input("Enter first name: ");
-			String EM = input("Enter email: ");
-			int PN = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member M = LIB.Add_mem(LN, FN, EM, PN);
-			output("\n" + M + "\n");
+			String lastName = input("Enter last name: "); // variable names changed to lastName
+			String firstName  = input("Enter first name: "); // variable names changed to firstName
+			String email = input("Enter email: "); // variable names changed to email
+			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue(); // variable names changed to phoneNo
+			Member member = LIB.Add_mem(lastName, firstName, email, phoneNo); // variable names changed to member
+			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");
