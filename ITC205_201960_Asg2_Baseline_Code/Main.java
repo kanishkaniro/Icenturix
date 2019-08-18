@@ -54,12 +54,12 @@ public class Main {
 						
 			menu = getMenu(); // changed method Get_menu() uppercase to lowercase
 			
-			boolean e = false;
+			boolean status = false; // variable names are to be meaningful. c changed to status
 			
-			while (!e) {
+			while (!status ) { // variable names are to be meaningful. c changed to status
 				
-				output("\n" + SDF.format(CAL.Date()));
-				String c = input(MENU);
+				output("\n" + simpleDateFormat.format(calendar.Date())); // sb to stringBuilder. Meaningful variable name
+				String c = input(menu); //     // 
 				
 				switch (c.toUpperCase()) {
 				
