@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner IN;
-	private static library LIB;
-	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	private static Scanner scanner; // variable names are to start with a lowercase letter and to be in camelBack
+	private static Library library; // variable names are to start with a lowercase letter and to be in camelBack
+	private static String menu; // variable names are to start with a lowercase letter and to be in camelBack
+	private static Calendar calendar; // variable names are to be meaningful and start with a lowercase letter and to be in camelBack
+	private static SimpleDateFormat simpleDateFormat; // variable names are to be meaningful and start with a lowercase letter and to be in camelBack
 	
 	
 	private static String Get_menu() {
-		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningfull name
+		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningful variable name
 		
 		sb.append("\nLibrary Main Menu\n\n")
 		  .append("  M  : add member\n")
