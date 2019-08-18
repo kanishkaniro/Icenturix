@@ -158,12 +158,12 @@ public class Main {
 
 
 	private static void returnBook() { // method names are to start with a lowercase letter and to be in camelBack
-		new ReturnBookUI(new ReturnBookControl()).RuN();		
+		new ReturnBookUI(new ReturnBookControl()).run(); // RuN changed to run	
 	}
 
 
 	private static void fixBooks() { // method names are to start with a lowercase letter and to be in camelBack
-		new FixBookUI(new FixBookControl()).RuN();		
+		new FixBookUI(new FixBookControl()).run();// 	
 	}
 
 
