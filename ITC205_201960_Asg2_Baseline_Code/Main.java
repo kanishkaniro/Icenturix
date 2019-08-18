@@ -54,14 +54,14 @@ public class Main {
 						
 			menu = getMenu(); // changed method Get_menu() uppercase to lowercase
 			
-			boolean status = false; // variable names are to be meaningful. c changed to status
+			boolean status = false; // variable names are to be meaningful. e changed to status
 			
-			while (!status ) { // variable names are to be meaningful. c changed to status
+			while (!status ) { // variable names are to be meaningful. e changed to status
 				
 				output("\n" + simpleDateFormat.format(calendar.Date())); // sb to stringBuilder. Meaningful variable name
-				String c = input(menu); //     // 
+				String bookItem = input(menu); // variable names are to be meaningful. c changed to bookItem
 				
-				switch (c.toUpperCase()) {
+				switch (bookItem.toUpperCase()) { // variable names are to be meaningful. c changed to bookItem 
 				
 				case "M": 
 					ADD_MEMBER();
@@ -104,7 +104,7 @@ public class Main {
 					break;
 					
 				case "Q": 
-					e = true;
+					status = true; // variable names are to be meaningful. e changed to status
 					break;
 					
 				default: 
