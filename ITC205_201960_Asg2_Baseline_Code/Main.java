@@ -11,7 +11,7 @@ public class Main {
 	private static SimpleDateFormat simpleDateFormat; // variable names are to be meaningful and start with a lowercase letter and to be in camelBack
 	
 	
-	private static String Get_menu() {
+	private static String getMenu() {  // changed method Get_menu() uppercase to lowercase
 		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningful variable name
 		
 		stringBuilder.append("\nLibrary Main Menu\n\n") // sb to stringBuilder. Meaningful variable name
@@ -52,7 +52,7 @@ public class Main {
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			menu = getMenu(); // changed method Get_menu() uppercase to lowercase
 			
 			boolean e = false;
 			
