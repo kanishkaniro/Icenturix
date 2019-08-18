@@ -14,26 +14,26 @@ public class Main {
 	private static String Get_menu() {
 		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningful variable name
 		
-		sb.append("\nLibrary Main Menu\n\n")
-		  .append("  M  : add member\n")
-		  .append("  LM : list members\n")
-		  .append("\n")
-		  .append("  B  : add book\n")
-		  .append("  LB : list books\n")
-		  .append("  FB : fix books\n")
-		  .append("\n")
-		  .append("  L  : take out a loan\n")
-		  .append("  R  : return a loan\n")
-		  .append("  LL : list loans\n")
-		  .append("\n")
-		  .append("  P  : pay fine\n")
-		  .append("\n")
-		  .append("  T  : increment date\n")
-		  .append("  Q  : quit\n")
-		  .append("\n")
-		  .append("Choice : ");
+		stringBuilder.append("\nLibrary Main Menu\n\n") // sb to stringBuilder. Meaningful variable name
+					 .append("  M  : add member\n")
+					 .append("  LM : list members\n")
+					 .append("\n")
+					 .append("  B  : add book\n")
+					 .append("  LB : list books\n")
+					 .append("  FB : fix books\n")
+					 .append("\n")
+					 .append("  L  : take out a loan\n")
+					 .append("  R  : return a loan\n")
+					 .append("  LL : list loans\n")
+					 .append("\n")
+					 .append("  P  : pay fine\n")
+					 .append("\n")
+					 .append("  T  : increment date\n")
+					 .append("  Q  : quit\n")
+					 .append("\n")
+					 .append("Choice : ");
 		  
-		return sb.toString();
+		return stringBuilder.toString(); // sb to stringBuilder. Meaningful variable name
 	}
 
 
