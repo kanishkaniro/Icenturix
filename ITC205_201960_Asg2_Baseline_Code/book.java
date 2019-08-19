@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+class book implements Serializable { // remove public syntx from infront of the class key word
 	
 	private String TITLE;
 	private String AUTHOR;
