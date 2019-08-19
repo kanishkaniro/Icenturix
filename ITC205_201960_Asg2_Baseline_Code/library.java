@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-class library implements Serializable { // remove public syntx from infront of the class key word
+public class library implements Serializable { 
 	
 	private static final String libraryFile = "library.obj";
 	private static final int loanLimit = 2;
