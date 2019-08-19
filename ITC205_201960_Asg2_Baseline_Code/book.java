@@ -1,8 +1,9 @@
+package ITC205_201960_Asg2_Baseline_Code; // package connect
 import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-class book implements Serializable { // remove public syntx from infront of the class key word
+public class book implements Serializable { 
 	
 	private String TITLE;
 	private String AUTHOR;
