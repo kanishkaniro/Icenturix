@@ -18,7 +18,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 		this.title = title; // TITLE change as title 
 		this.callNo = callNo;  // CALLNO change as callNo
 		this.id = id;  // ID change as id
-		this.State = STATE.AVAILABLE;
+		this.state = STATE.AVAILABLE; // State change as state
 	}
 	
 	public String toString() {
