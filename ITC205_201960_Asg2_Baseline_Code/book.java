@@ -57,7 +57,7 @@ public class book implements Serializable {
 	}
 
 	
-	public void Borrow() {
+	public void Borrow() { // Borrow() change as borrow() according to standard
 		if (State.equals(STATE.AVAILABLE)) {
 			State = STATE.ON_LOAN;
 		}
