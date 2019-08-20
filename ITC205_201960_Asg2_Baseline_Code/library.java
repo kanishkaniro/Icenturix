@@ -23,7 +23,7 @@ public class library implements Serializable {
 	private static final double maxFinesOwed = 1.0;
 	private static final double damageFee = 2.0;
 	
-	private static library SeLf;
+	private static library self; // SeLf change as self according to standard
 	private int BOOK_ID;
 	private int MEMBER_ID;
 	private int LOAN_ID;
