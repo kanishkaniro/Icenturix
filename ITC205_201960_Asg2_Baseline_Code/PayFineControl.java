@@ -9,22 +9,22 @@ public class PayFineControl {
 
 	public PayFineControl() {
 		this.LiBrArY = LiBrArY.INSTANCE();
-		StAtE = ControlState.INITIALISED; // CONTROL_STATE changed to ControlState 
+		StAtE = ControlState.INITIALISED; // CONTROL_STATE changed to ControlState  // StAtE changed to state
 	}
 	
 	
 	public void Set_UI(PayFineUI ui) {
-		if (!StAtE.equals(ControlState.INITIALISED)) { // CONTROL_STATE changed to ControlState 
+		if (!StAtE.equals(ControlState.INITIALISED)) { // CONTROL_STATE changed to ControlState  // StAtE changed to state
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.Ui = ui;
 		ui.Set_State(PayFineUI.UI_STATE.READY);
-		StAtE = ControlState.READY;		
+		StAtE = ControlState.READY; // StAtE changed to state		
 	}
 
 
 	public void Card_Swiped(int memberId) {
-		if (!StAtE.equals(ControlState.READY)) { // CONTROL_STATE changed to ControlState 
+		if (!StAtE.equals(ControlState.READY)) { // CONTROL_STATE changed to ControlState  // StAtE changed to state
 			throw new RuntimeException("PayFineControl: cannot call cardSwiped except in READY state");
 		}	
 		MeMbEr = LiBrArY.MEMBER(memberId);
@@ -35,18 +35,18 @@ public class PayFineControl {
 		}
 		Ui.DiSplAY(MeMbEr.toString());
 		Ui.Set_State(PayFineUI.UI_STATE.PAYING);
-		StAtE = ControlState.PAYING; // CONTROL_STATE changed to ControlState 
+		StAtE = ControlState.PAYING; // CONTROL_STATE changed to ControlState // StAtE changed to state
 	}
 	
 	
 	public void CaNcEl() {
 		Ui.Set_State(PayFineUI.UI_STATE.CANCELLED);
-		StAtE = ControlState.CANCELLED; // CONTROL_STATE changed to ControlState 
+		StAtE = ControlState.CANCELLED; // CONTROL_STATE changed to ControlState  // StAtE changed to state
 	}
 
 
 	public double PaY_FiNe(double AmOuNt) {
-		if (!StAtE.equals(ControlState.PAYING)) { // CONTROL_STATE changed to ControlState 
+		if (!StAtE.equals(ControlState.PAYING)) { // CONTROL_STATE changed to ControlState  // StAtE changed to state
 			throw new RuntimeException("PayFineControl: cannot call payFine except in PAYING state");
 		}	
 		double ChAnGe = MeMbEr.Pay_Fine(AmOuNt);
@@ -55,7 +55,7 @@ public class PayFineControl {
 		}
 		Ui.DiSplAY(MeMbEr.toString());
 		Ui.Set_State(PayFineUI.UI_STATE.COMPLETED);
-		StAtE = ControlState.COMPLETED; // CONTROL_STATE changed to ControlState 
+		StAtE = ControlState.COMPLETED; // CONTROL_STATE changed to ControlState // StAtE changed to state
 		return ChAnGe;
 	}
 	
