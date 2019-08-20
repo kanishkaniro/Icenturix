@@ -14,7 +14,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.AUTHOR = author;
+		this.author = author;// AUTHOR change as author
 		this.title = title; // TITLE change as title 
 		this.CALLNO = callNo;
 		this.ID = id;
