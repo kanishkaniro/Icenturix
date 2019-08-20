@@ -25,7 +25,7 @@ public class Loan implements Serializable { // class name is to start with an up
 	
 	public void checkOverDue() {
 		if (state == LoanState.CURRENT &&
-			Calendar.INSTANCE().Date().after(D)) {
+			Calendar.INSTANCE().Date().after(date)) { // d changed to date
 			this.state = LoanState.OVER_DUE; // enum names are to start with an uppercase letter and to be in CamelBack
 		}
 	}
