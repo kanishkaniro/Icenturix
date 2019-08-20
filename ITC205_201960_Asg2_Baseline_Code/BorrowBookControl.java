@@ -1,116 +1,117 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 import java.util.ArrayList;
 import java.util.List;
 
 public class BorrowBookControl {
 	
-	private BorrowBookUI UI;
+	private BorrowBookUI borrowBookUI; // UI change to camel case
 	
-	private library LIBRARY;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE State;
+	private Library library; // variable name should be camel case and class name first letter should be upper case
+	private Member member; // variable name should be camel case and class name first letter should be upper case
+	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED }; // All enum names are to start with an upper case letter and to be in CamelBack. 
+	private ControlState State; // CONTROL_STATE changed to ControlState
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
-	private book BOOK;
+	private List<book> bookList; // PENDING changed to bookList - meaningful name
+	private List<loan> loanList; // COMPLETED changed to loanList - meaningful name
+	private Book book;  // BOOK should be lower case and class name should be Book
 	
 	
 	public BorrowBookControl() {
-		this.LIBRARY = LIBRARY.INSTANCE();
-		State = CONTROL_STATE.INITIALISED;
+		this.library = library.INSTANCE(); // variable name should be camel case and class name first letter should be upper case
+		State = ControlState.INITIALISED; // All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 	
 
-	public void setUI(BorrowBookUI ui) {
-		if (!State.equals(CONTROL_STATE.INITIALISED)) 
+	public void setUI(BorrowBookUI borrowBookUI) { //variable name should be meaningful
+		if (!State.equals(ControlState.INITIALISED)) // All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
-		this.UI = ui;
-		ui.Set_State(BorrowBookUI.UI_STATE.READY);
-		State = CONTROL_STATE.READY;		
+		this.borrowBookUI = borrowBookUI; // UI change to camel case //variable name should be meaningful
+		borrowBookUI.Set_State(BorrowBookUI.UI_STATE.READY); //variable name should be meaningful
+		State = ControlState.READY;	// All enum names are to start with an upper case letter and to be in CamelBack. 	
 	}
 
 		
-	public void Swiped(int MEMMER_ID) {
-		if (!State.equals(CONTROL_STATE.READY)) 
+	public void swiped(int memberId) { // variable name and method name should be camel case
+		if (!State.equals(ControlState.READY)) // All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = LIBRARY.MEMBER(MEMMER_ID);
-		if (M == null) {
-			UI.Display("Invalid memberId");
+		member = library.member(memberId); // variable name should be camel case and class name first letter should be upper case
+		if (member == null) {
+			borrowBookUI.Display("Invalid memberId"); // UI change to camel case
 			return;
 		}
-		if (LIBRARY.MEMBER_CAN_BORROW(M)) {
-			PENDING = new ArrayList<>();
-			UI.Set_State(BorrowBookUI.UI_STATE.SCANNING);
-			State = CONTROL_STATE.SCANNING; }
+		if (library.MEMBER_CAN_BORROW(member)) { // variable name should be camel case and class name first letter should be upper case
+			bookList = new ArrayList<>(); // PENDING changed to bookList - meaningful name
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.SCANNING); // UI change to camel case
+			State = ControlState.SCANNING; } // All enum names are to start with an upper case letter and to be in CamelBack. 
 		else 
 		{
-			UI.Display("Member cannot borrow at this time");
-			UI.Set_State(BorrowBookUI.UI_STATE.RESTRICTED); }}
+			borrowBookUI.Display("Member cannot borrow at this time"); // UI change to camel case
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.RESTRICTED); }} // UI change to camel case
 	
 	
-	public void Scanned(int bookId) {
-		BOOK = null;
-		if (!State.equals(CONTROL_STATE.SCANNING)) {
+	public void scanned(int bookId) { // All method names are to start with a lowercase letter and to be in camelBack. 
+		book = null;  // BOOK should be lower case
+		if (!State.equals(ControlState.SCANNING)) { // All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		BOOK = LIBRARY.Book(bookId);
-		if (BOOK == null) {
-			UI.Display("Invalid bookId");
+		book = library.book(bookId); // variable name should be camel case and class name first letter should be upper case
+		if (book == null) {  // BOOK should be lower case
+			borrowBookUI.Display("Invalid bookId");// UI change to camel case
 			return;
 		}
-		if (!BOOK.AVAILABLE()) {
-			UI.Display("Book cannot be borrowed");
+		if (!book.AVAILABLE()) {  // BOOK should be lower case
+			borrowBookUI.Display("Book cannot be borrowed");// UI change to camel case
 			return;
 		}
-		PENDING.add(BOOK);
-		for (book B : PENDING) {
-			UI.Display(B.toString());
+		bookList.add(book);  // PENDING changed to bookList - meaningful name  // BOOK should be lower case
+		for (book B : bookList) {  // PENDING changed to bookList - meaningful name
+			borrowBookUI.Display(B.toString());// UI change to camel case
 		}
-		if (LIBRARY.Loans_Remaining_For_Member(M) - PENDING.size() == 0) {
-			UI.Display("Loan limit reached");
-			Complete();
+		if (library.Loans_Remaining_For_Member(member) - bookList.size() == 0) { // variable name should be camel case and class name first letter should be upper case
+			borrowBookUI.Display("Loan limit reached"); // UI change to camel case
+			complete(); // All method names are to start with a lower case letter and to be in camelBack. 
 		}
 	}
 	
 	
-	public void Complete() {
-		if (PENDING.size() == 0) {
+	public void complete() { // All method names are to start with a lower case letter and to be in camelBack. 
+		if (bookList.size() == 0) { // PENDING changed to bookList - meaningful name
 			cancel();
 		}
 		else {
-			UI.Display("\nFinal Borrowing List");
-			for (book B : PENDING) {
-				UI.Display(B.toString());
+			borrowBookUI.Display("\nFinal Borrowing List");
+			for (book B : bookList) {  // PENDING changed to bookList - meaningful name
+				borrowBookUI.Display(B.toString()); // UI change to camel case
 			}
-			COMPLETED = new ArrayList<loan>();
-			UI.Set_State(BorrowBookUI.UI_STATE.FINALISING);
-			State = CONTROL_STATE.FINALISING;
+			loanList = new ArrayList<loan>();  // COMPLETED changed to loanList - meaningful name
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.FINALISING);// UI change to camel case
+			State = ControlState.FINALISING; // All enum names are to start with an upper case letter and to be in CamelBack. 
 		}
 	}
 
 
-	public void Commit_LOans() {
-		if (!State.equals(CONTROL_STATE.FINALISING)) {
+	public void commitLoans() { // All method names are to start with a lower case letter and to be in camelBack. 
+		if (!State.equals(ControlState.FINALISING)) { // All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 		}	
-		for (book B : PENDING) {
-			loan LOAN = LIBRARY.ISSUE_LAON(B, M);
-			COMPLETED.add(LOAN);			
+		for (book B : bookList) { // PENDING changed to bookList - meaningful name
+			Loan loan = library.ISSUE_LAON(B, member); // variable name should be camel case and class name first letter should be upper case, loan class name changed to Loan, LOAN object name changed to loan
+			loanList.add(loan);	 // COMPLETED changed to loanList - meaningful name, LOAN object name changed to loan  		
 		}
-		UI.Display("Completed Loan Slip");
-		for (loan LOAN : COMPLETED) {
-			UI.Display(LOAN.toString());
+		borrowBookUI.Display("Completed Loan Slip");// UI change to camel case
+		for (Loan loan : loanList) {  // COMPLETED changed to loanList - meaningful name, loan class name changed to Loan, LOAN object name changed to loan 
+			borrowBookUI.Display(loan.toString());// UI change to camel case, loan class name changed to Loan, LOAN object name changed to loan 
 		}
-		UI.Set_State(BorrowBookUI.UI_STATE.COMPLETED);
-		State = CONTROL_STATE.COMPLETED;
+		borrowBookUI.Set_State(BorrowBookUI.UI_STATE.loanList);// UI change to camel case  // COMPLETED changed to loanList - meaningful name
+		State = ControlState.COMPLETED;  // All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 
 	
 	public void cancel() {
-		UI.Set_State(BorrowBookUI.UI_STATE.CANCELLED);
-		State = CONTROL_STATE.CANCELLED;
+		borrowBookUI.Set_State(BorrowBookUI.UI_STATE.CANCELLED);// UI change to camel case
+		State = ControlState.CANCELLED; // All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 	
 	
