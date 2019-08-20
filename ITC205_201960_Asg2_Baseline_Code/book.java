@@ -1,30 +1,31 @@
+package ITC205_201960_Asg2_Baseline_Code; // package connect
 import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-class book implements Serializable { // remove public syntx from infront of the class key word
+public class book implements Serializable { 
 	
-	private String title;// TITLE change as title   
-	private String author; // AUTHOR change as author
-	private String callNo; // CALLNO change as callNo
-	private int ID; // ID change as id
+	private String TITLE;
+	private String AUTHOR;
+	private String CALLNO;
+	private int ID;
 	
-	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };// STATE change as State
-	private STATE state; // State change as state
+	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private STATE State;
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.author = author;// AUTHOR change as author
-		this.title = title; // TITLE change as title 
-		this.callNo = callNo;  // CALLNO change as callNo
-		this.id = id;  // ID change as id
-		this.state = STATE.AVAILABLE; // State change as state
+		this.AUTHOR = author;
+		this.TITLE = title;
+		this.CALLNO = callNo;
+		this.ID = id;
+		this.State = STATE.AVAILABLE;
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(id).append("\n")// ID change as id
-		  .append("  Title:  ").append(title).append("\n") // TITLE change as title
+		sb.append("Book: ").append(ID).append("\n")
+		  .append("  Title:  ").append(TITLE).append("\n")
 		  .append("  Author: ").append(AUTHOR).append("\n")
 		  .append("  CallNo: ").append(CALLNO).append("\n")
 		  .append("  State:  ").append(State);
