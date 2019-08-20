@@ -8,17 +8,17 @@ public class Loan implements Serializable { // class name is to start with an up
 	public static enum LoanState { CURRENT, OVER_DUE, DISCHARGED }; // enum names are to start with an uppercase letter and to be in CamelBack. 
 	
 	private int loanId;  // variable name ID changed to loanId
-	private book B;
-	private member M;
-	private Date D;
+	private Book book;   // variable names must meaningful
+	private Member member; // variable names must meaningful
+	private Date date;   // variable names must meaningful
 	private LoanState state; // Declare variables of the enum type LoanState. enum names are to start with an uppercase letter and to be in CamelBack
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
-		this.loanId = loanId;  // variable name ID changed to loanId
-		this.B = book;
-		this.M = member;
-		this.D = dueDate;
+		this.loanId = loanId;   // variable name ID changed to loanId
+		this.book = book; 		// variable names must meaningful
+		this.member = member;   // variable names must meaningful
+		this.date = dueDate;    // variable names must meaningful
 		this.state = LoanState.CURRENT; // Assign values into enum variables.enum names are to start with an uppercase letter and to be in CamelBack
 	}
 
