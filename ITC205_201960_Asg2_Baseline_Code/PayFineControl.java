@@ -1,8 +1,8 @@
 public class PayFineControl {
 	
 	private PayFineUI Ui;
-	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
-	private CONTROL_STATE StAtE;
+	private enum ControlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // enum names are to start with an uppercase letter and to be in CamelBack. 
+	private CONTROL_STATE StAtE; 
 	
 	private library LiBrArY;
 	private member MeMbEr;
