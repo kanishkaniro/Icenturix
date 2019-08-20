@@ -6,7 +6,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 	
 	private String title;// TITLE change as title   
 	private String author; // AUTHOR change as author
-	private String CALLNO;
+	private String callNo; // CALLNO change as callNo
 	private int ID;
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
