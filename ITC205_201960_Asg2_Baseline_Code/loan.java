@@ -72,7 +72,7 @@ public class Loan implements Serializable { // class name is to start with an up
 
 
 	public void DiScHaRgE() {
-		state = LOAN_STATE.DISCHARGED;		
+		state = LoanState.DISCHARGED; // enum names are to start with an uppercase letter and to be in CamelBack. 
 	}
 
 }
