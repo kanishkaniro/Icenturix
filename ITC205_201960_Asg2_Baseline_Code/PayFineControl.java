@@ -8,7 +8,7 @@ public class PayFineControl {
 
 
 	public PayFineControl() {
-		this.LiBrArY = LiBrArY.INSTANCE();
+		this.library = library.INSTANCE(); // LiBrArY changed to library
 		state = ControlState.INITIALISED; // CONTROL_STATE changed to ControlState  // StAtE changed to state
 	}
 	
@@ -27,7 +27,7 @@ public class PayFineControl {
 		if (!state.equals(ControlState.READY)) { // CONTROL_STATE changed to ControlState  // StAtE changed to state
 			throw new RuntimeException("PayFineControl: cannot call cardSwiped except in READY state");
 		}	
-		MeMbEr = LiBrArY.MEMBER(memberId);
+		MeMbEr = library.MEMBER(memberId); // LiBrArY changed to library
 		
 		if (MeMbEr == null) {
 			Ui.DiSplAY("Invalid Member Id");
