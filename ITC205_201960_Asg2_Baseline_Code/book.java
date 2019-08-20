@@ -36,7 +36,7 @@ public class book implements Serializable {
 		return ID;
 	}
 
-	public String TITLE() { // TITLE() change as TITLE() according to standerd
+	public String title() { // TITLE() change as title() according to standard
 		return TITLE;
 	}
 
