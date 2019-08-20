@@ -11,7 +11,7 @@ public class Loan implements Serializable { // class name is to start with an up
 	private book B;
 	private member M;
 	private Date D;
-	private LoanState state; // Declare variables of the enum type LoanState
+	private LoanState state; // Declare variables of the enum type LoanState. enum names are to start with an uppercase letter and to be in CamelBack
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
@@ -19,20 +19,20 @@ public class Loan implements Serializable { // class name is to start with an up
 		this.B = book;
 		this.M = member;
 		this.D = dueDate;
-		this.state = LOAN_STATE.CURRENT;
+		this.state = LoanState.CURRENT; // Assign values into enum variables.enum names are to start with an uppercase letter and to be in CamelBack
 	}
 
 	
 	public void checkOverDue() {
-		if (state == LOAN_STATE.CURRENT &&
+		if (state == LoanState.CURRENT &&
 			Calendar.INSTANCE().Date().after(D)) {
-			this.state = LOAN_STATE.OVER_DUE;			
+			this.state = LoanState.OVER_DUE; // enum names are to start with an uppercase letter and to be in CamelBack
 		}
 	}
 
 	
 	public boolean OVer_Due() {
-		return state == LOAN_STATE.OVER_DUE;
+		return state == LoanState.OVER_DUE; // enum names are to start with an uppercase letter and to be in CamelBack
 	}
 
 	
