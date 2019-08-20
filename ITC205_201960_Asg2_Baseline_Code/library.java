@@ -27,7 +27,7 @@ public class library implements Serializable {
 	private int bookId; // BOOK_ID change as bookId according to standard
 	private int memberId; // MEMBER_ID change as memberId according to standard
 	private int loanId; // LOAN_ID change as loanId according to standard
-	private Date LOAN_DATE;
+	private Date loanDate; // LOAN_DATE change as loanDate according to standard
 	
 	private Map<Integer, book> CATALOG;
 	private Map<Integer, member> MEMBERS;
