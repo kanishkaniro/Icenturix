@@ -47,7 +47,7 @@ public class book implements Serializable {
 	}
 
 	
-	public boolean On_loan() {
+	public boolean onLoan() { // On_loan() change as onLoan() according to standard
 		return State == STATE.ON_LOAN;
 	}
 
