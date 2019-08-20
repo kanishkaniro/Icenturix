@@ -32,11 +32,11 @@ public class book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer ID() { // ID() change as id() accoding to standerds
+	public Integer ID() { // ID() change as id() according to standerd
 		return ID;
 	}
 
-	public String TITLE() {
+	public String TITLE() { // TITLE() change as TITLE() according to standerd
 		return TITLE;
 	}
 
