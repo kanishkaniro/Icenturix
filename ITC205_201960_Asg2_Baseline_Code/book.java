@@ -10,7 +10,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 	private int ID;
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private STATE State;
+	private STATE state; // State change as state
 	
 	
 	public book(String author, String title, String callNo, int id) {
