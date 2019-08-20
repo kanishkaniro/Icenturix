@@ -3,10 +3,10 @@ import java.util.List;
 
 public class BorrowBookControl {
 	
-	private BorrowBookUI UI;
+	private BorrowBookUI borrowBookUI; // UI change to camel case
 	
 	private Library library; // variable name should be camel case and class name first letter should be upper case
-	private member M;
+	private Member member; // variable name should be camel case and class name first letter should be upper case
 	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
 	private CONTROL_STATE State;
 	
@@ -16,7 +16,7 @@ public class BorrowBookControl {
 	
 	
 	public BorrowBookControl() {
-		this.LIBRARY = LIBRARY.INSTANCE();
+		this.library = library.INSTANCE(); // variable name should be camel case and class name first letter should be upper case
 		State = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -25,7 +25,7 @@ public class BorrowBookControl {
 		if (!State.equals(CONTROL_STATE.INITIALISED)) 
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
-		this.UI = ui;
+		this.borrowBookUI = ui; // UI change to camel case
 		ui.Set_State(BorrowBookUI.UI_STATE.READY);
 		State = CONTROL_STATE.READY;		
 	}
@@ -35,19 +35,19 @@ public class BorrowBookControl {
 		if (!State.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = LIBRARY.MEMBER(MEMMER_ID);
+		M = library.member(MEMMER_ID); // variable name should be camel case and class name first letter should be upper case
 		if (M == null) {
-			UI.Display("Invalid memberId");
+			borrowBookUI.Display("Invalid memberId"); // UI change to camel case
 			return;
 		}
-		if (LIBRARY.MEMBER_CAN_BORROW(M)) {
+		if (library.MEMBER_CAN_BORROW(M)) { // variable name should be camel case and class name first letter should be upper case
 			PENDING = new ArrayList<>();
-			UI.Set_State(BorrowBookUI.UI_STATE.SCANNING);
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.SCANNING); // UI change to camel case
 			State = CONTROL_STATE.SCANNING; }
 		else 
 		{
-			UI.Display("Member cannot borrow at this time");
-			UI.Set_State(BorrowBookUI.UI_STATE.RESTRICTED); }}
+			borrowBookUI.Display("Member cannot borrow at this time"); // UI change to camel case
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.RESTRICTED); }} // UI change to camel case
 	
 	
 	public void Scanned(int bookId) {
@@ -55,21 +55,21 @@ public class BorrowBookControl {
 		if (!State.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		BOOK = LIBRARY.Book(bookId);
+		BOOK = library.Book(bookId); // variable name should be camel case and class name first letter should be upper case
 		if (BOOK == null) {
-			UI.Display("Invalid bookId");
+			borrowBookUI.Display("Invalid bookId");// UI change to camel case
 			return;
 		}
 		if (!BOOK.AVAILABLE()) {
-			UI.Display("Book cannot be borrowed");
+			borrowBookUI.Display("Book cannot be borrowed");// UI change to camel case
 			return;
 		}
 		PENDING.add(BOOK);
 		for (book B : PENDING) {
-			UI.Display(B.toString());
+			borrowBookUI.Display(B.toString());// UI change to camel case
 		}
-		if (LIBRARY.Loans_Remaining_For_Member(M) - PENDING.size() == 0) {
-			UI.Display("Loan limit reached");
+		if (library.Loans_Remaining_For_Member(M) - PENDING.size() == 0) { // variable name should be camel case and class name first letter should be upper case
+			borrowBookUI.Display("Loan limit reached"); // UI change to camel case
 			Complete();
 		}
 	}
@@ -80,12 +80,12 @@ public class BorrowBookControl {
 			cancel();
 		}
 		else {
-			UI.Display("\nFinal Borrowing List");
+			borrowBookUI.Display("\nFinal Borrowing List");
 			for (book B : PENDING) {
-				UI.Display(B.toString());
+				borrowBookUI.Display(B.toString()); // UI change to camel case
 			}
 			COMPLETED = new ArrayList<loan>();
-			UI.Set_State(BorrowBookUI.UI_STATE.FINALISING);
+			borrowBookUI.Set_State(BorrowBookUI.UI_STATE.FINALISING);// UI change to camel case
 			State = CONTROL_STATE.FINALISING;
 		}
 	}
@@ -96,20 +96,20 @@ public class BorrowBookControl {
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 		}	
 		for (book B : PENDING) {
-			loan LOAN = LIBRARY.ISSUE_LAON(B, M);
+			loan LOAN = library.ISSUE_LAON(B, M); // variable name should be camel case and class name first letter should be upper case
 			COMPLETED.add(LOAN);			
 		}
-		UI.Display("Completed Loan Slip");
+		borrowBookUI.Display("Completed Loan Slip");// UI change to camel case
 		for (loan LOAN : COMPLETED) {
-			UI.Display(LOAN.toString());
+			borrowBookUI.Display(LOAN.toString());// UI change to camel case
 		}
-		UI.Set_State(BorrowBookUI.UI_STATE.COMPLETED);
+		borrowBookUI.Set_State(BorrowBookUI.UI_STATE.COMPLETED);// UI change to camel case
 		State = CONTROL_STATE.COMPLETED;
 	}
 
 	
 	public void cancel() {
-		UI.Set_State(BorrowBookUI.UI_STATE.CANCELLED);
+		borrowBookUI.Set_State(BorrowBookUI.UI_STATE.CANCELLED);// UI change to camel case
 		State = CONTROL_STATE.CANCELLED;
 	}
 	
