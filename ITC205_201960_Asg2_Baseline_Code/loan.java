@@ -5,7 +5,7 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class Loan implements Serializable { // class name is to start with an uppercase letter 
 	
-	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
+	public static enum LoanState { CURRENT, OVER_DUE, DISCHARGED }; // enum names are to start with an uppercase letter and to be in CamelBack. 
 	
 	private int ID;
 	private book B;
