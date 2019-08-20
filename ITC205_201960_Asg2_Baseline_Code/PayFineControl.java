@@ -4,7 +4,7 @@ public class PayFineControl {
 	private enum ControlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // enum names are to start with an uppercase letter and to be in CamelBack. 
 	private ControlState state; // CONTROL_STATE changed to ControlState  // variable names are to start with a lowercase letter and to be in camelBack // StAtE changed to state
 	private Library library; // variable names are to start with a lowercase letter and to be in camelBack
-	private member MeMbEr;
+	private Member member;  // MeMbEr changed to member. variable names are to start with a lowercase letter and to be in camelBack
 
 
 	public PayFineControl() {
