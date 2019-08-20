@@ -1,7 +1,7 @@
 package ITC205_201960_Asg2_Baseline_Code; // package connect
 import java.io.Serializable;
 
-
+//Yoshan's change
 @SuppressWarnings("serial")
 public class book implements Serializable { 
 	
