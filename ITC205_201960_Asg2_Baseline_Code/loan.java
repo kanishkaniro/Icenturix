@@ -47,17 +47,17 @@ public class Loan implements Serializable { // class name is to start with an up
 	
 	
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // names are to be meaningful
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(ID).append("\n")
-		  .append("  Borrower ").append(M.GeT_ID()).append(" : ")
-		  .append(M.Get_LastName()).append(", ").append(M.Get_FirstName()).append("\n")
-		  .append("  Book ").append(B.ID()).append(" : " )
-		  .append(B.TITLE()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
-		  .append("  State: ").append(state);		
-		return sb.toString();
+		StringBuilder stringBuilder = new StringBuilder(); // names are to be meaningful. sb changed to stringBuilder
+		stringBuilder.append("Loan:  ").append(ID).append("\n") // names are to be meaningful. sb changed to stringBuilder
+					 .append("  Borrower ").append(M.GeT_ID()).append(" : ")
+					 .append(M.Get_LastName()).append(", ").append(M.Get_FirstName()).append("\n")
+					 .append("  Book ").append(B.ID()).append(" : " )
+					 .append(B.TITLE()).append("\n")
+					 .append("  DueDate: ").append(simpleDateFormat.format(D)).append("\n") // names are to be meaningful
+					 .append("  State: ").append(state);		
+		return stringBuilder.toString(); // names are to be meaningful. sb changed to stringBuilder
 	}
 
 
