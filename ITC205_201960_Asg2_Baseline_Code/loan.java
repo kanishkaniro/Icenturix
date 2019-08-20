@@ -47,7 +47,7 @@ public class Loan implements Serializable { // class name is to start with an up
 	
 	
 	public String toString() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // names are to be meaningful
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // names are to be meaningful. sdb changed to simpleDateFormat
 
 		StringBuilder stringBuilder = new StringBuilder(); // names are to be meaningful. sb changed to stringBuilder
 		stringBuilder.append("Loan:  ").append(ID).append("\n") // names are to be meaningful. sb changed to stringBuilder
@@ -55,7 +55,7 @@ public class Loan implements Serializable { // class name is to start with an up
 					 .append(M.Get_LastName()).append(", ").append(M.Get_FirstName()).append("\n")
 					 .append("  Book ").append(B.ID()).append(" : " )
 					 .append(B.TITLE()).append("\n")
-					 .append("  DueDate: ").append(simpleDateFormat.format(D)).append("\n") // names are to be meaningful
+					 .append("  DueDate: ").append(simpleDateFormat.format(D)).append("\n") // names are to be meaningful. sdb changed to simpleDateFormat
 					 .append("  State: ").append(state);		
 		return stringBuilder.toString(); // names are to be meaningful. sb changed to stringBuilder
 	}
