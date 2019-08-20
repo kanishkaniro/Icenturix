@@ -24,7 +24,7 @@ public class library implements Serializable {
 	private static final double damageFee = 2.0;
 	
 	private static library self; // SeLf change as self according to standard
-	private int BOOK_ID;
+	private int bookId; // BOOK_ID change as bookId according to standard
 	private int MEMBER_ID;
 	private int LOAN_ID;
 	private Date LOAN_DATE;
