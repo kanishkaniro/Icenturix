@@ -27,7 +27,7 @@ public class book implements Serializable {
 		  .append("  Title:  ").append(title).append("\n") // TITLE change as title
 		  .append("  Author: ").append(author).append("\n") // AUTHOR change as author
 		  .append("  CallNo: ").append(callNo).append("\n") // CALLNO change as callNo
-		  .append("  State:  ").append(State);
+		  .append("  State:  ").append(State); // State change as state
 		
 		return sb.toString();
 	}
