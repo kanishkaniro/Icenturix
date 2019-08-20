@@ -26,7 +26,7 @@ public class library implements Serializable {
 	private static library self; // SeLf change as self according to standard
 	private int bookId; // BOOK_ID change as bookId according to standard
 	private int memberId; // MEMBER_ID change as memberId according to standard
-	private int LOAN_ID; // LOAN_ID change as loanId according to standard
+	private int loanId; // LOAN_ID change as loanId according to standard
 	private Date LOAN_DATE;
 	
 	private Map<Integer, book> CATALOG;
