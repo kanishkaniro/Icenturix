@@ -5,7 +5,7 @@ import java.io.Serializable;
 class book implements Serializable { // remove public syntx from infront of the class key word
 	
 	private String title;// TITLE change as title   
-	private String AUTHOR;
+	private String author; // AUTHOR change as author
 	private String CALLNO;
 	private int ID;
 	
