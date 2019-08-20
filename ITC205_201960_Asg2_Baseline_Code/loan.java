@@ -11,7 +11,7 @@ public class Loan implements Serializable { // class name is to start with an up
 	private book B;
 	private member M;
 	private Date D;
-	private LOAN_STATE state;
+	private LoanState state; // Declare variables of the enum type LoanState
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
