@@ -23,7 +23,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(ID).append("\n")
+		sb.append("Book: ").append(id).append("\n")// ID change as id
 		  .append("  Title:  ").append(TITLE).append("\n")
 		  .append("  Author: ").append(AUTHOR).append("\n")
 		  .append("  CallNo: ").append(CALLNO).append("\n")
