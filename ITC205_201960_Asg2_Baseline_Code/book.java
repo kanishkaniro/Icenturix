@@ -9,7 +9,7 @@ class book implements Serializable { // remove public syntx from infront of the 
 	private String callNo; // CALLNO change as callNo
 	private int ID; // ID change as id
 	
-	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };// STATE change as State
 	private STATE state; // State change as state
 	
 	
