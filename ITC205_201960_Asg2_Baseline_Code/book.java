@@ -52,7 +52,7 @@ public class book implements Serializable {
 	}
 
 	
-	public boolean IS_Damaged() {
+	public boolean isDamaged() { // IS_Damaged() change as isDamaged() according to standard
 		return State == STATE.DAMAGED;
 	}
 
