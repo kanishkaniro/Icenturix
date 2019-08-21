@@ -89,7 +89,7 @@ public class member implements Serializable {
 		FINES += fine;
 	}
 	
-	public double Pay_Fine(double AmOuNt) {
+	public double payFine(double amount) { // AmOuNt change as amount according to standard and method name Pay_Fine change as payFine according to standard
 		if (AmOuNt < 0) {
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
