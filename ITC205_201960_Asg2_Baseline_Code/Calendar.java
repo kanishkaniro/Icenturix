@@ -55,11 +55,11 @@ public class Calendar {
 		return dueDate;// change DuEdAtE to dueDate
 	}
 	
-	public synchronized long Get_Days_Difference(Date targetDate) {
+	public synchronized long getDifferenceDatesFromToday(Date targetDate) { // change Get_Days_Difference method name to getDifferenceDatesFromToday
 		
-		long Diff_Millis = Date().getTime() - targetDate.getTime();
-	    long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
-	    return Diff_Days;
+		long differenceMilliSeconds = Date().getTime() - targetDate.getTime(); // change Diff_Millis to differenceMilliSeconds
+	    long differenceDates = TimeUnit.DAYS.convert(differenceMilliSeconds, TimeUnit.MILLISECONDS);// change Diff_Millis to differenceMilliSeconds, change Diff_Days to differenceDates
+	    return differenceDates; // change Diff_Days to differenceDates
 	}
 
 }
