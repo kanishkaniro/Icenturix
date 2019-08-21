@@ -61,7 +61,7 @@ public class member implements Serializable {
 
 	
 	public double finesOwEd() { // method name Fines_OwEd change as finesOwEd according to standard
-		return FINES;
+		return fines; // FINES change as fines according to standard
 	}
 
 	
