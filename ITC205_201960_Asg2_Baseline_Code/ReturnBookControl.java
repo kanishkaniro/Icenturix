@@ -4,12 +4,12 @@ public class ReturnBookControl {
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE sTaTe; 
 	
-	private library lIbRaRy;
+	private Library library; // variable names are to start with a lowercase letter and to be in camelBack
 	private loan CurrENT_loan;
 	
 
 	public ReturnBookControl() {
-		this.lIbRaRy = lIbRaRy.INSTANCE();
+		this.library = library.INSTANCE(); // lIbRaRy changed to library
 		sTaTe = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -28,7 +28,7 @@ public class ReturnBookControl {
 		if (!sTaTe.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
-		book CUR_book = lIbRaRy.Book(Book_ID);
+		book CUR_book = lIbRaRy.Book(Book_ID); // lIbRaRy changed to library
 		
 		if (CUR_book == null) {
 			returnBookUI.display("Invalid Book Id");
@@ -67,7 +67,7 @@ public class ReturnBookControl {
 		if (!sTaTe.equals(CONTROL_STATE.INSPECTING)) {
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		}	
-		lIbRaRy.Discharge_loan(CurrENT_loan, isDamaged);
+		library.Discharge_loan(CurrENT_loan, isDamaged); // lIbRaRy changed to library
 		CurrENT_loan = null;
 		returnBookUI.Set_State(ReturnBookUI.UI_STATE.READY); // Ui changed to returnBookUI
 		sTaTe = CONTROL_STATE.READY;				
