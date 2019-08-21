@@ -12,7 +12,7 @@ public class member implements Serializable {
 	private String email; // EM change as email according to standard
 	private int phoneNo; // PN change as phoneNo according to standard
 	private int id; // ID change as id according to standard
-	private double FINES;
+	private double fines; // FINES change as fines according to standard
 	
 	private Map<Integer, loan> LNS;
 
