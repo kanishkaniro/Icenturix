@@ -90,7 +90,7 @@ public class BorrowBookUI {
 					CONTROL.cancel();
 					
 				} else {
-					CONTROL.Commit_LOans();
+					CONTROL.commitLoans(); // change method name to camel case
 					inputString("Press <any key> to complete "); // change method name input to inputString
 				}
 				break;
