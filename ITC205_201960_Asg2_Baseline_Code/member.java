@@ -60,12 +60,12 @@ public class member implements Serializable {
 	}
 
 	
-	public double Fines_OwEd() {
+	public double finesOwEd() { // method name Fines_OwEd change as finesOwEd according to standard
 		return FINES;
 	}
 
 	
-	public void Take_Out_Loan(loan loan) {
+	public void Take_Out_Loan(loan loan) { 
 		if (!LNS.containsKey(loan.ID())) {
 			LNS.put(loan.ID(), loan);
 		}
