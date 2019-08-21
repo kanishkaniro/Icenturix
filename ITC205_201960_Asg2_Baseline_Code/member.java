@@ -11,7 +11,7 @@ public class member implements Serializable {
 	private String firstName; // FN change as firstName according to standard
 	private String email; // EM change as email according to standard
 	private int phoneNo; // PN change as phoneNo according to standard
-	private int ID;
+	private int id; // ID change as id according to standard
 	private double FINES;
 	
 	private Map<Integer, loan> LNS;
