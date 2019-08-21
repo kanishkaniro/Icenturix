@@ -76,17 +76,17 @@ public class member implements Serializable {
 
 	
 	public String Get_LastName() {
-		return LN;
+		return lastName; // LN change as lastName according to standard
 	}
 
 	
 	public String Get_FirstName() {
-		return FN;
+		return firstName; // FN change as firstName according to standard
 	}
 
 
 	public void Add_Fine(double fine) {
-		FINES += fine;
+		FINES += fine; // FINES change as fines according to standard
 	}
 	
 	public double payFine(double amount) { // AmOuNt change as amount according to standard and method name Pay_Fine change as payFine according to standard
