@@ -92,7 +92,7 @@ public class PayFineUI {
 	}	
 			
 
-	public void DiSplAY(Object object) {
+	public void DiSplAY(Object object) { // Method name DiSplAY changed to display
 		output(object);
 	}
 
