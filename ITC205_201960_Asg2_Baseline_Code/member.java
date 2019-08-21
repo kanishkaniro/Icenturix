@@ -7,7 +7,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class member implements Serializable {
 
-	private String LN;
+	private String lastName; // LN change as lastName according to standarad
 	private String FN;
 	private String EM;
 	private int PN;
