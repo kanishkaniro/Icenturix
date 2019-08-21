@@ -4,22 +4,22 @@ import java.util.Scanner;
 public class PayFineUI {
 
 
-	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // enum names are to start with an uppercase letter and to be in CamelBack
 
 	private PayFineControl payFineControl; // CoNtRoL changed to payFineControl
 	private Scanner input;
-	private UI_STATE StAtE;
+	private UiState StAtE; // enum names are to start with an uppercase letter and to be in CamelBack
 
 	
 	public PayFineUI(PayFineControl control) {
 		this.payFineControl = control; // CoNtRoL changed to payFineControl
 		input = new Scanner(System.in);
-		StAtE = UI_STATE.INITIALISED;
+		StAtE = UiState.INITIALISED; // enum names are to start with an uppercase letter and to be in CamelBack
 		control.Set_UI(this);
 	}
 	
 	
-	public void Set_State(UI_STATE state) {
+	public void Set_State(UiState state) { // UI_STATE changed to UiState 
 		this.StAtE = state;
 	}
 
