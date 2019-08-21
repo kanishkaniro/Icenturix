@@ -24,7 +24,7 @@ public class PayFineUI {
 	}
 
 
-	public void RuN() { // Method name RuN changed to run
+	public void run() { // Method name RuN changed to run
 		output("Pay Fine Use Case UI\n");
 		
 		while (true) {
@@ -47,21 +47,21 @@ public class PayFineUI {
 				break;
 				
 			case PAYING:
-				double AmouNT = 0;
+				double amount = 0; // variable names are to start with a lowercase letter
 				String Amt_Str = input("Enter amount (<Enter> cancels) : ");
 				if (Amt_Str.length() == 0) {
 					payFineControl.CaNcEl();  // CoNtRoL changed to payFineControl
 					break;
 				}
 				try {
-					AmouNT = Double.valueOf(Amt_Str).doubleValue();
+					amount = Double.valueOf(Amt_Str).doubleValue(); // variable names are to start with a lowercase letter
 				}
 				catch (NumberFormatException e) {}
-				if (AmouNT <= 0) {
+				if (amount <= 0) {
 					output("Amount must be positive");
 					break;
 				}
-				payFineControl.PaY_FiNe(AmouNT); // CoNtRoL changed to payFineControl
+				payFineControl.PaY_FiNe(amount); // CoNtRoL changed to payFineControl
 				break;
 								
 			case CANCELLED:
@@ -74,7 +74,7 @@ public class PayFineUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
 			
 			}		
 		}		
