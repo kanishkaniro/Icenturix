@@ -22,7 +22,7 @@ public class member implements Serializable {
 		this.firstName = firstName; // FN change as firstName according to standard
 		this.email = email; // EM change as email according to standard
 		this.phoneNo = phoneNo; // PM change as phoneNo according to standard
-		this.ID = id;
+		this.id = id; // ID change as id according to standard
 		
 		this.LNS = new HashMap<>();
 	}
