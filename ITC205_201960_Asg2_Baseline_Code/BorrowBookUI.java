@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };// All enum names are to start with an upper case letter and to be in CamelBack. 
 
-	private BorrowBookControl CONTROL;
+	private BorrowBookControl borrowBookControl; // All class object should be meaningful and camel case
 	private Scanner input;
-	private UI_STATE StaTe;
+	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack. 
 
 	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.CONTROL = control;
 		input = new Scanner(System.in);
-		StaTe = UI_STATE.INITIALISED;
+		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack. 
 		control.setUI(this);
 	}
 
@@ -29,8 +29,8 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void Set_State(UI_STATE STATE) {
-		this.StaTe = STATE;
+	public void Set_State(UiState STATE) {// All enum names are to start with an upper case letter and to be in CamelBack. 
+		this.uiState = STATE;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 
 	
@@ -39,7 +39,7 @@ public class BorrowBookUI {
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			switch (uiState) {	// All enum names are to start with an upper case letter and to be in CamelBack. 		
 			
 			case CANCELLED:
 				output("Borrowing Cancelled");
@@ -103,7 +103,7 @@ public class BorrowBookUI {
 				
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + uiState);// All enum names are to start with an upper case letter and to be in CamelBack. 			
 			}
 		}		
 	}
