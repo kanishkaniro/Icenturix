@@ -6,13 +6,13 @@ public class BorrowBookUI {
 	public static enum UiState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };// All enum names are to start with an upper case letter and to be in CamelBack. 
 
 	private BorrowBookControl borrowBookControl; // All class object should be meaningful and camel case
-	private Scanner input;
+	private Scanner scannerInput; // variable or object names should be meaningful 
 	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack. 
 
 	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.CONTROL = control;
-		input = new Scanner(System.in);
+		scannerInput = new Scanner(System.in); // variable or object names should be meaningful 
 		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack. 
 		control.setUI(this);
 	}
@@ -20,7 +20,7 @@ public class BorrowBookUI {
 	
 	private String input(String prompt) {
 		System.out.print(prompt);
-		return input.nextLine();
+		return scannerInput.nextLine();// variable or object names should be meaningful 
 	}	
 		
 		
