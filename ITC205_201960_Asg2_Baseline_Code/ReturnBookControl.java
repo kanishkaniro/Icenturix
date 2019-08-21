@@ -2,7 +2,7 @@ public class ReturnBookControl {
 
 	private ReturnBookUI returnBookUI; // Ui changed to returnBookUI
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
-	private CONTROL_STATE sTaTe; 
+	private CONTROL_STATE state; // sTaTe changed to state
 	
 	private Library library; // variable names are to start with a lowercase letter and to be in camelBack
 	private loan CurrENT_loan;
@@ -10,22 +10,22 @@ public class ReturnBookControl {
 
 	public ReturnBookControl() {
 		this.library = library.INSTANCE(); // lIbRaRy changed to library
-		sTaTe = CONTROL_STATE.INITIALISED;
+		state = CONTROL_STATE.INITIALISED; // sTaTe changed to state
 	}
 	
 	
 	public void Set_UI(ReturnBookUI ui) {
-		if (!sTaTe.equals(CONTROL_STATE.INITIALISED)) {
+		if (!state.equals(CONTROL_STATE.INITIALISED)) { // sTaTe changed to state
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.returnBookUI = ui;
 		ui.Set_State(ReturnBookUI.UI_STATE.READY);
-		sTaTe = CONTROL_STATE.READY;		
+		state = CONTROL_STATE.READY; // sTaTe changed to state	
 	}
 
 
 	public void Book_scanned(int Book_ID) {
-		if (!sTaTe.equals(CONTROL_STATE.READY)) {
+		if (!state.equals(CONTROL_STATE.READY)) { // sTaTe changed to state
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
 		book CUR_book = lIbRaRy.Book(Book_ID); // lIbRaRy changed to library
