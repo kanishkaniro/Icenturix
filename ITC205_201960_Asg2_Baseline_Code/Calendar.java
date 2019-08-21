@@ -4,11 +4,11 @@ import java.util.concurrent.TimeUnit;
 public class Calendar {
 	
 	private static Calendar SeLf;
-	private static java.util.Calendar CaLeNdAr;
+	private static java.util.Calendar calender; // Change CaLeNdAr to calendar according to camel case notation
 	
 	
 	private Calendar() {
-		CaLeNdAr = java.util.Calendar.getInstance();
+		calender = java.util.Calendar.getInstance(); // Change CaLeNdAr to calendar according to camel case notation
 	}
 	
 	public static Calendar INSTANCE() {
@@ -19,16 +19,16 @@ public class Calendar {
 	}
 	
 	public void incrementDate(int days) {
-		CaLeNdAr.add(java.util.Calendar.DATE, days);		
+		calender.add(java.util.Calendar.DATE, days); // Change CaLeNdAr to calendar according to camel case notation		
 	}
 	
 	public synchronized void Set_dATE(Date date) {
 		try {
-			CaLeNdAr.setTime(date);
-	        CaLeNdAr.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MINUTE, 0);  
-	        CaLeNdAr.set(java.util.Calendar.SECOND, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MILLISECOND, 0);
+			calender.setTime(date); // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.HOUR_OF_DAY, 0);   // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.MINUTE, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.SECOND, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MILLISECOND, 0); // Change CaLeNdAr to calendar according to camel case notation
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -36,11 +36,11 @@ public class Calendar {
 	}
 	public synchronized Date Date() {
 		try {
-	        CaLeNdAr.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MINUTE, 0);  
-	        CaLeNdAr.set(java.util.Calendar.SECOND, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MILLISECOND, 0);
-			return CaLeNdAr.getTime();
+	        calender.set(java.util.Calendar.HOUR_OF_DAY, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MINUTE, 0);   // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.SECOND, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MILLISECOND, 0); // Change CaLeNdAr to calendar according to camel case notation
+			return calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -49,9 +49,9 @@ public class Calendar {
 
 	public synchronized Date Due_Date(int loanPeriod) {
 		Date NoW = Date();
-		CaLeNdAr.add(java.util.Calendar.DATE, loanPeriod);
-		Date DuEdAtE = CaLeNdAr.getTime();
-		CaLeNdAr.setTime(NoW);
+		calender.add(java.util.Calendar.DATE, loanPeriod); // Change CaLeNdAr to calendar according to camel case notation
+		Date DuEdAtE = calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation
+		calender.setTime(NoW); // Change CaLeNdAr to calendar according to camel case notation
 		return DuEdAtE;
 	}
 	
