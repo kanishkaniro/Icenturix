@@ -47,14 +47,14 @@ public class BorrowBookUI {
 
 				
 			case READY:
-				String MEM_STR = inputString("Swipe member card (press <enter> to cancel): "); // change method name input to inputString
-				if (MEM_STR.length() == 0) {
+				String memberCardNo = inputString("Swipe member card (press <enter> to cancel): "); // change method name input to inputString, change MEM_STR to memberCardNo
+				if (memberCardNo.length() == 0) { // change MEM_STR to memberCardNo
 					CONTROL.cancel();
 					break;
 				}
 				try {
-					int Member_ID = Integer.valueOf(MEM_STR).intValue();
-					CONTROL.Swiped(Member_ID);
+					int memberId = Integer.valueOf(memberCardNo).intValue();// change MEM_STR to memberCardNo, change Member_ID to memberId
+					CONTROL.Swiped(memberId); // change Member_ID to memberId
 				}
 				catch (NumberFormatException e) {
 					showOutput("Invalid Member Id");// change method name output to meaningful name - showOutput
