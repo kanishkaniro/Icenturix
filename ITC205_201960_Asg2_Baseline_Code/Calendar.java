@@ -47,12 +47,12 @@ public class Calendar {
 		}	
 	}
 
-	public synchronized Date Due_Date(int loanPeriod) {
-		Date NoW = Date();
+	public synchronized Date getDueDate(int loanPeriod) { // change Due_Date to getDueDate
+		Date toDate = Date(); // change NoW to toDate
 		calender.add(java.util.Calendar.DATE, loanPeriod); // Change CaLeNdAr to calendar according to camel case notation
-		Date DuEdAtE = calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation
-		calender.setTime(NoW); // Change CaLeNdAr to calendar according to camel case notation
-		return DuEdAtE;
+		Date dueDate = calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation, change DuEdAtE to dueDate
+		calender.setTime(toDate); // Change CaLeNdAr to calendar according to camel case notation, change NoW to toDate
+		return dueDate;// change DuEdAtE to dueDate
 	}
 	
 	public synchronized long Get_Days_Difference(Date targetDate) {
