@@ -55,7 +55,7 @@ public class member implements Serializable {
 	}
 
 	
-	public int Number_Of_Current_Loans() {
+	public int numberOfCurrentLoans() { // method name Number_Of_Current_Loans change as numberOfCurrentLoans according to standard
 		return LNS.size();
 	}
 
