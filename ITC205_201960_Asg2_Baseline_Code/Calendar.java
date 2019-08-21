@@ -22,7 +22,7 @@ public class Calendar {
 		calender.add(java.util.Calendar.DATE, days); // Change CaLeNdAr to calendar according to camel case notation		
 	}
 	
-	public synchronized void Set_dATE(Date date) {
+	public synchronized void setDate(Date date) { // change Set_dATE to setDate
 		try {
 			calender.setTime(date); // Change CaLeNdAr to calendar according to camel case notation
 	        calender.set(java.util.Calendar.HOUR_OF_DAY, 0);   // Change CaLeNdAr to calendar according to camel case notation
