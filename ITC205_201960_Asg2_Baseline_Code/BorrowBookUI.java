@@ -18,7 +18,7 @@ public class BorrowBookUI {
 	}
 
 	
-	private String input(String prompt) {
+	private String inputString(String prompt) { // change method name input to inputString
 		System.out.print(prompt);
 		return scannerInput.nextLine();// variable or object names should be meaningful 
 	}	
@@ -47,7 +47,7 @@ public class BorrowBookUI {
 
 				
 			case READY:
-				String MEM_STR = input("Swipe member card (press <enter> to cancel): ");
+				String MEM_STR = inputString("Swipe member card (press <enter> to cancel): "); // change method name input to inputString
 				if (MEM_STR.length() == 0) {
 					CONTROL.cancel();
 					break;
@@ -63,13 +63,13 @@ public class BorrowBookUI {
 
 				
 			case RESTRICTED:
-				input("Press <any key> to cancel");
+				inputString("Press <any key> to cancel"); // change method name input to inputString
 				CONTROL.cancel();
 				break;
 			
 				
 			case SCANNING:
-				String bookName = input("Scan Book (<enter> completes): "); // variable should be camel case
+				String bookName = inputString("Scan Book (<enter> completes): "); // variable should be camel case,  change method name input to inputString
 				if (bookName.length() == 0) { // variable should be camel case
 					CONTROL.Complete();
 					break;
@@ -85,13 +85,13 @@ public class BorrowBookUI {
 					
 				
 			case FINALISING:
-				String answer = input("Commit loans? (Y/N): "); // variable should be camel case
+				String answer = inputString("Commit loans? (Y/N): "); // variable should be camel case,  change method name input to inputString
 				if (answer.toUpperCase().equals("N")) { // variable should be camel case
 					CONTROL.cancel();
 					
 				} else {
 					CONTROL.Commit_LOans();
-					input("Press <any key> to complete ");
+					inputString("Press <any key> to complete "); // change method name input to inputString
 				}
 				break;
 				
