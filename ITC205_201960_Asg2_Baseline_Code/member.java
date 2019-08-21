@@ -9,7 +9,7 @@ public class member implements Serializable {
 
 	private String lastName; // LN change as lastName according to standard
 	private String firstName; // FN change as firstName according to standard
-	private String EM;
+	private String email; // EM change as email according to standard
 	private int PN;
 	private int ID;
 	private double FINES;
