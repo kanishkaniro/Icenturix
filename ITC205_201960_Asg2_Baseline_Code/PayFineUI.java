@@ -8,19 +8,19 @@ public class PayFineUI {
 
 	private PayFineControl payFineControl; // CoNtRoL changed to payFineControl
 	private Scanner input;
-	private UiState StAtE; // enum names are to start with an uppercase letter and to be in CamelBack
+	private UiState state; // enum names are to start with an uppercase letter and to be in CamelBack // StAtE changed to state
 
 	
 	public PayFineUI(PayFineControl control) {
 		this.payFineControl = control; // CoNtRoL changed to payFineControl
 		input = new Scanner(System.in);
-		StAtE = UiState.INITIALISED; // enum names are to start with an uppercase letter and to be in CamelBack
+		state = UiState.INITIALISED; // enum names are to start with an uppercase letter and to be in CamelBack // StAtE changed to state
 		control.Set_UI(this);
 	}
 	
 	
 	public void Set_State(UiState state) { // UI_STATE changed to UiState 
-		this.StAtE = state;
+		this.state = state; // StAtE changed to state
 	}
 
 
@@ -29,7 +29,7 @@ public class PayFineUI {
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (state) { // StAtE changed to state
 			
 			case READY:
 				String Mem_Str = input("Swipe member card (press <enter> to cancel): ");
