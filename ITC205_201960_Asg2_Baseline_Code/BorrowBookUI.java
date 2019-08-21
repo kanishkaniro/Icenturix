@@ -29,8 +29,8 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void Set_State(UiState STATE) {// All enum names are to start with an upper case letter and to be in CamelBack. 
-		this.uiState = STATE;// All enum names are to start with an upper case letter and to be in CamelBack. 
+	public void setState(UiState state) {// All enum names are to start with an upper case letter and to be in CamelBack. , change method name
+		this.uiState = state;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 
 	
@@ -69,13 +69,13 @@ public class BorrowBookUI {
 			
 				
 			case SCANNING:
-				String Book_Str = input("Scan Book (<enter> completes): ");
-				if (Book_Str.length() == 0) {
+				String bookName = input("Scan Book (<enter> completes): "); // variable should be camel case
+				if (bookName.length() == 0) { // variable should be camel case
 					CONTROL.Complete();
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(Book_Str).intValue();
+					int BiD = Integer.valueOf(bookName).intValue(); // variable should be camel case
 					CONTROL.Scanned(BiD);
 					
 				} catch (NumberFormatException e) {
@@ -109,7 +109,7 @@ public class BorrowBookUI {
 	}
 
 
-	public void Display(Object object) {
+	public void display(Object object) {//change method name Display to display
 		output(object);		
 	}
 
