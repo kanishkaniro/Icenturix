@@ -49,7 +49,7 @@ public class library implements Serializable {
 
 	
 	public static synchronized library INSTANCE() {		
-		if (SeLf == null) {
+		if (self == null) { // SeLf change as self according to standard
 			Path PATH = Paths.get(libraryFile);			
 			if (Files.exists(PATH)) {	
 				try (ObjectInputStream LiF = new ObjectInputStream(new FileInputStream(libraryFile));) {
