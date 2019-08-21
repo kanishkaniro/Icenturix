@@ -18,7 +18,7 @@ public class Calendar {
 		return calendarInstance; // change SeLf to meaningful name
 	}
 	
-	public void incrementDate(int days) {
+	public void addDates(int days) { // change incrementDate to addDates
 		calender.add(java.util.Calendar.DATE, days); // Change CaLeNdAr to calendar according to camel case notation		
 	}
 	
