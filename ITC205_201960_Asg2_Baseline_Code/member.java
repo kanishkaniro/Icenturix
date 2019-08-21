@@ -45,7 +45,7 @@ public class member implements Serializable {
 	}
 
 	
-	public int GeT_ID() {
+	public int getId() { // GeT_ID change as getId according to standard
 		return ID;
 	}
 
