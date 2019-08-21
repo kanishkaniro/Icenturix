@@ -3,7 +3,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Calendar {
 	
-	private static Calendar SeLf;
+	private static Calendar calendarInstance; // change SeLf to meaningful name 
 	private static java.util.Calendar calender; // Change CaLeNdAr to calendar according to camel case notation
 	
 	
@@ -12,10 +12,10 @@ public class Calendar {
 	}
 	
 	public static Calendar INSTANCE() {
-		if (SeLf == null) {
-			SeLf = new Calendar();
+		if (calendarInstance == null) { // change SeLf to meaningful name
+			calendarInstance = new Calendar(); // change SeLf to meaningful name
 		}
-		return SeLf;
+		return calendarInstance; // change SeLf to meaningful name
 	}
 	
 	public void incrementDate(int days) {
