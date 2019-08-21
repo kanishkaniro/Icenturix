@@ -1,34 +1,35 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Calendar {
 	
-	private static Calendar SeLf;
-	private static java.util.Calendar CaLeNdAr;
+	private static Calendar calendarInstance; // change SeLf to meaningful name 
+	private static java.util.Calendar calender; // Change CaLeNdAr to calendar according to camel case notation
 	
 	
 	private Calendar() {
-		CaLeNdAr = java.util.Calendar.getInstance();
+		calender = java.util.Calendar.getInstance(); // Change CaLeNdAr to calendar according to camel case notation
 	}
 	
 	public static Calendar INSTANCE() {
-		if (SeLf == null) {
-			SeLf = new Calendar();
+		if (calendarInstance == null) { // change SeLf to meaningful name
+			calendarInstance = new Calendar(); // change SeLf to meaningful name
 		}
-		return SeLf;
+		return calendarInstance; // change SeLf to meaningful name
 	}
 	
-	public void incrementDate(int days) {
-		CaLeNdAr.add(java.util.Calendar.DATE, days);		
+	public void addDates(int days) { // change incrementDate to addDates
+		calender.add(java.util.Calendar.DATE, days); // Change CaLeNdAr to calendar according to camel case notation		
 	}
 	
-	public synchronized void Set_dATE(Date date) {
+	public synchronized void setDate(Date date) { // change Set_dATE to setDate
 		try {
-			CaLeNdAr.setTime(date);
-	        CaLeNdAr.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MINUTE, 0);  
-	        CaLeNdAr.set(java.util.Calendar.SECOND, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MILLISECOND, 0);
+			calender.setTime(date); // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.HOUR_OF_DAY, 0);   // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.MINUTE, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.SECOND, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MILLISECOND, 0); // Change CaLeNdAr to calendar according to camel case notation
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -36,30 +37,30 @@ public class Calendar {
 	}
 	public synchronized Date Date() {
 		try {
-	        CaLeNdAr.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MINUTE, 0);  
-	        CaLeNdAr.set(java.util.Calendar.SECOND, 0);  
-	        CaLeNdAr.set(java.util.Calendar.MILLISECOND, 0);
-			return CaLeNdAr.getTime();
+	        calender.set(java.util.Calendar.HOUR_OF_DAY, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MINUTE, 0);   // Change CaLeNdAr to calendar according to camel case notation
+	        calender.set(java.util.Calendar.SECOND, 0);  // Change CaLeNdAr to calendar according to camel case notation 
+	        calender.set(java.util.Calendar.MILLISECOND, 0); // Change CaLeNdAr to calendar according to camel case notation
+			return calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}	
 	}
 
-	public synchronized Date Due_Date(int loanPeriod) {
-		Date NoW = Date();
-		CaLeNdAr.add(java.util.Calendar.DATE, loanPeriod);
-		Date DuEdAtE = CaLeNdAr.getTime();
-		CaLeNdAr.setTime(NoW);
-		return DuEdAtE;
+	public synchronized Date getDueDate(int loanPeriod) { // change Due_Date to getDueDate
+		Date toDate = Date(); // change NoW to toDate
+		calender.add(java.util.Calendar.DATE, loanPeriod); // Change CaLeNdAr to calendar according to camel case notation
+		Date dueDate = calender.getTime(); // Change CaLeNdAr to calendar according to camel case notation, change DuEdAtE to dueDate
+		calender.setTime(toDate); // Change CaLeNdAr to calendar according to camel case notation, change NoW to toDate
+		return dueDate;// change DuEdAtE to dueDate
 	}
 	
-	public synchronized long Get_Days_Difference(Date targetDate) {
+	public synchronized long getDifferenceDatesFromToday(Date targetDate) { // change Get_Days_Difference method name to getDifferenceDatesFromToday
 		
-		long Diff_Millis = Date().getTime() - targetDate.getTime();
-	    long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
-	    return Diff_Days;
+		long differenceMilliSeconds = Date().getTime() - targetDate.getTime(); // change Diff_Millis to differenceMilliSeconds
+	    long differenceDates = TimeUnit.DAYS.convert(differenceMilliSeconds, TimeUnit.MILLISECONDS);// change Diff_Millis to differenceMilliSeconds, change Diff_Days to differenceDates
+	    return differenceDates; // change Diff_Days to differenceDates
 	}
 
 }
