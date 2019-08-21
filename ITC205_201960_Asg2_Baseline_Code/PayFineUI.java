@@ -19,7 +19,7 @@ public class PayFineUI {
 	}
 	
 	
-	public void Set_State(UiState state) { // UI_STATE changed to UiState 
+	public void setState(UiState state) { // UI_STATE changed to UiState // Set_State changed to setState
 		this.state = state; // StAtE changed to state
 	}
 
