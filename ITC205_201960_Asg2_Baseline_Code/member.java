@@ -50,7 +50,7 @@ public class member implements Serializable {
 	}
 
 	
-	public List<loan> GeT_LoAnS() {
+	public List<loan> getLoans() { // method name GeT_LoAnS change as getLoans according to standard
 		return new ArrayList<loan>(LNS.values());
 	}
 
