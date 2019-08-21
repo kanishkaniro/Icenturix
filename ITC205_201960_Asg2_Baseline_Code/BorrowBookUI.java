@@ -24,7 +24,7 @@ public class BorrowBookUI {
 	}	
 		
 		
-	private void output(Object object) {
+	private void showOutput(Object object) { // change method name output to meaningful name - showOutput
 		System.out.println(object);
 	}
 	
@@ -35,14 +35,14 @@ public class BorrowBookUI {
 
 	
 	public void run() {
-		output("Borrow Book Use Case UI\n");
+		showOutput("Borrow Book Use Case UI\n"); // change method name output to meaningful name - showOutput
 		
 		while (true) {
 			
 			switch (uiState) {	// All enum names are to start with an upper case letter and to be in CamelBack. 		
 			
 			case CANCELLED:
-				output("Borrowing Cancelled");
+				showOutput("Borrowing Cancelled");// change method name output to meaningful name - showOutput
 				return;
 
 				
@@ -57,7 +57,7 @@ public class BorrowBookUI {
 					CONTROL.Swiped(Member_ID);
 				}
 				catch (NumberFormatException e) {
-					output("Invalid Member Id");
+					showOutput("Invalid Member Id");// change method name output to meaningful name - showOutput
 				}
 				break;
 
@@ -75,18 +75,18 @@ public class BorrowBookUI {
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(bookName).intValue(); // variable should be camel case
-					CONTROL.Scanned(BiD);
+					int bookId = Integer.valueOf(bookName).intValue(); // variable should be camel case
+					CONTROL.Scanned(bookId); // variable should be camel case
 					
 				} catch (NumberFormatException e) {
-					output("Invalid Book Id");
+					showOutput("Invalid Book Id");// change method name output to meaningful name - showOutput
 				} 
 				break;
 					
 				
 			case FINALISING:
-				String Ans = input("Commit loans? (Y/N): ");
-				if (Ans.toUpperCase().equals("N")) {
+				String answer = input("Commit loans? (Y/N): "); // variable should be camel case
+				if (answer.toUpperCase().equals("N")) { // variable should be camel case
 					CONTROL.cancel();
 					
 				} else {
@@ -97,12 +97,12 @@ public class BorrowBookUI {
 				
 				
 			case COMPLETED:
-				output("Borrowing Completed");
+				showOutput("Borrowing Completed");// change method name output to meaningful name - showOutput
 				return;
 	
 				
 			default:
-				output("Unhandled state");
+				showOutput("Unhandled state");// change method name output to meaningful name - showOutput
 				throw new RuntimeException("BorrowBookUI : unhandled state :" + uiState);// All enum names are to start with an upper case letter and to be in CamelBack. 			
 			}
 		}		
@@ -110,7 +110,7 @@ public class BorrowBookUI {
 
 
 	public void display(Object object) {//change method name Display to display
-		output(object);		
+		showOutput(object);		// change method name output to meaningful name - showOutput
 	}
 
 
