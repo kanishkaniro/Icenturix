@@ -20,7 +20,7 @@ public class member implements Serializable {
 	public member(String lastName, String firstName, String email, int phoneNo, int id) {
 		this.lastName = lastName; // LN change as lastName according to standard
 		this.firstName = firstName; // FN change as firstName according to standard
-		this.EM = email; // EM change as email according to standard
+		this.email = email; // EM change as email according to standard
 		this.phoneNo = phoneNo; // PM change as phoneNo according to standard
 		this.ID = id;
 		
