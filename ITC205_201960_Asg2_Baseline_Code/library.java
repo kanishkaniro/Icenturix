@@ -55,7 +55,7 @@ public class library implements Serializable {
 				try (ObjectInputStream LiF = new ObjectInputStream(new FileInputStream(libraryFile));) {
 			    
 					self = (library) LiF.readObject(); //SeLf change as self according to standard
-					Calendar.INSTANCE().Set_dATE(SeLf.LOAN_DATE);
+					Calendar.INSTANCE().Set_dATE(self.LOAN_DATE); //SeLf change as self according to standard
 					LiF.close();
 				}
 				catch (Exception e) {
