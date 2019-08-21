@@ -38,7 +38,7 @@ public class BorrowBookControl {
 			
 		member = library.member(memberId); // variable name should be camel case and class name first letter should be upper case
 		if (member == null) {
-			borrowBookUI.Display("Invalid memberId"); // UI change to camel case
+			borrowBookUI.Display("Invalid memberId"); // UI change to meaningful name and camel case
 			return;
 		}
 		if (library.MEMBER_CAN_BORROW(member)) { // variable name should be camel case and class name first letter should be upper case
