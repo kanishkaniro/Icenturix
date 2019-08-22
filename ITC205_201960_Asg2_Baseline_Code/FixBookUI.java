@@ -6,13 +6,13 @@ public class FixBookUI {
 	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };// All enum names are to start with an upper case letter and to be in CamelBack.
 
 	private FixBookControl fixBookControl; // object name should be camel case
-	private Scanner input;
+	private Scanner scannerInput; // change input to meaningful name
 	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack, object, reference and variable names should be camel case
 
 	
 	public FixBookUI(FixBookControl control) {
 		this.fixBookControl = control;  // object name should be camel case
-		input = new Scanner(System.in);
+		scannerInput = new Scanner(System.in);// change input to meaningful name
 		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack, , object, reference and variable names should be camel case
 		control.setFixBookUi(this);// Change method name to meaningful and camel case
 	}
@@ -31,7 +31,7 @@ public class FixBookUI {
 			switch (uiState) { // object, reference and variable names should be camel case
 			
 			case READY:
-				String bookString = input("Scan Book (<enter> completes): "); // variable name Book_STR change to bookString
+				String bookString = scannerInput("Scan Book (<enter> completes): "); // variable name Book_STR change to bookString, change input to meaningful name
 				if (bookString.length() == 0) { // variable name Book_STR change to bookString
 					fixBookControl.SCannING_COMplete();  // object name should be camel case
 				}
@@ -47,7 +47,7 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String answer = input("Fix Book? (Y/N) : "); // variable name AnS change to answer
+				String answer = scannerInput("Fix Book? (Y/N) : "); // variable name AnS change to answer, change input to meaningful name
 				boolean isFixed = false; // variable name FiX change to isFixed
 				if (answer.toUpperCase().equals("Y")) { // variable name AnS change to answer
 					isFixed = true; // variable name FiX change to isFixed
@@ -69,9 +69,9 @@ public class FixBookUI {
 	}
 
 	
-	private String input(String prompt) {
+	private String scannerInput(String prompt) { // change input to meaningful name
 		System.out.print(prompt);
-		return input.nextLine();
+		return scannerInput.nextLine(); // change input to meaningful name
 	}	
 		
 		
