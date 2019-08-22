@@ -1,6 +1,5 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 import java.util.Scanner;
-
-
 public class FixBookUI {
 
 	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };// All enum names are to start with an upper case letter and to be in CamelBack.
