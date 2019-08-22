@@ -5,13 +5,13 @@ public class FixBookUI {
 
 	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };// All enum names are to start with an upper case letter and to be in CamelBack.
 
-	private FixBookControl CoNtRoL;
+	private FixBookControl fixBookControl; // object name should be camel case
 	private Scanner input;
 	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack, object, reference and variable names should be camel case
 
 	
 	public FixBookUI(FixBookControl control) {
-		this.CoNtRoL = control;
+		this.fixBookControl = control;  // object name should be camel case
 		input = new Scanner(System.in);
 		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack, , object, reference and variable names should be camel case
 		control.Set_Ui(this);
@@ -33,12 +33,12 @@ public class FixBookUI {
 			case READY:
 				String Book_STR = input("Scan Book (<enter> completes): ");
 				if (Book_STR.length() == 0) {
-					CoNtRoL.SCannING_COMplete();
+					fixBookControl.SCannING_COMplete();  // object name should be camel case
 				}
 				else {
 					try {
 						int Book_ID = Integer.valueOf(Book_STR).intValue();
-						CoNtRoL.Book_scanned(Book_ID);
+						fixBookControl.Book_scanned(Book_ID); // object name should be camel case
 					}
 					catch (NumberFormatException e) {
 						output("Invalid bookId");
@@ -52,7 +52,7 @@ public class FixBookUI {
 				if (AnS.toUpperCase().equals("Y")) {
 					FiX = true;
 				}
-				CoNtRoL.FIX_Book(FiX);
+				fixBookControl.FIX_Book(FiX); // object name should be camel case
 				break;
 								
 			case COMPLETED:
