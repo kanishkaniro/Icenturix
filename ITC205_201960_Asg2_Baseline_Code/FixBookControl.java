@@ -4,12 +4,12 @@ public class FixBookControl {
 	private enum ControlState { INITIALISED, READY, FIXING };// All enum names are to start with an upper case letter and to be in CamelBack. 
 	private ControlState StAtE;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	
-	private library LIB;
-	private book Cur_Book;
+	private Library library; // library class name should be Library, LIB object name should be library
+	private Book book; // book class name should be Book, Cur_Book object name should be meaningful and camel case
 
 
 	public FixBookControl() {
-		this.LIB = LIB.INSTANCE();
+		this.library = library.INSTANCE(); // LIB object name should be library
 		StAtE = ControlState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 	
@@ -28,13 +28,13 @@ public class FixBookControl {
 		if (!StAtE.equals(ControlState.READY)) {// All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
 		}	
-		Cur_Book = LIB.Book(bookId);
+		book = library.Book(bookId); // LIB object name should be library,Cur_Book object name should be meaningful and camel case
 		
-		if (Cur_Book == null) {
+		if (book == null) { // Cur_Book object name should be meaningful and camel case
 			fixBookUi.display("Invalid bookId"); // Change UI to fixBookUi
 			return;
 		}
-		if (!Cur_Book.IS_Damaged()) {
+		if (!book.IS_Damaged()) {//Cur_Book object name should be meaningful and camel case
 			fixBookUi.display("Book has not been damaged"); // Change UI to fixBookUi
 			return;
 		}
@@ -49,9 +49,9 @@ public class FixBookControl {
 			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
 		}	
 		if (MUST_fix) {
-			LIB.Repair_BOOK(Cur_Book);
+			library.Repair_BOOK(Cur_Book); // LIB object name should be library
 		}
-		Cur_Book = null;
+		book = null;//Cur_Book object name should be meaningful and camel case
 		fixBookUi.Set_State(FixBookUI.UI_STATE.READY); // Change UI to fixBookUi
 		StAtE = ControlState.READY;// All enum names are to start with an upper case letter and to be in CamelBack. 		
 	}
