@@ -3,23 +3,23 @@ import java.util.Scanner;
 
 public class FixBookUI {
 
-	public static enum UI_STATE { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED };// All enum names are to start with an upper case letter and to be in CamelBack.
 
 	private FixBookControl CoNtRoL;
 	private Scanner input;
-	private UI_STATE StAtE;
+	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack, object, reference and variable names should be camel case
 
 	
 	public FixBookUI(FixBookControl control) {
 		this.CoNtRoL = control;
 		input = new Scanner(System.in);
-		StAtE = UI_STATE.INITIALISED;
+		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack, , object, reference and variable names should be camel case
 		control.Set_Ui(this);
 	}
 
 
-	public void Set_State(UI_STATE state) {
-		this.StAtE = state;
+	public void Set_State(UiState state) {// All enum names are to start with an upper case letter and to be in CamelBack.
+		this.uiState = state; // object, reference and variable names should be camel case
 	}
 
 	
@@ -28,7 +28,7 @@ public class FixBookUI {
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (uiState) { // object, reference and variable names should be camel case
 			
 			case READY:
 				String Book_STR = input("Scan Book (<enter> completes): ");
@@ -61,7 +61,7 @@ public class FixBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + uiState);	// object, reference and variable names should be camel case		
 			
 			}		
 		}
