@@ -14,16 +14,16 @@ public class FixBookUI {
 		this.fixBookControl = control;  // object name should be camel case
 		input = new Scanner(System.in);
 		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack, , object, reference and variable names should be camel case
-		control.Set_Ui(this);
+		control.setFixBookUi(this);// Change method name to meaningful and camel case
 	}
 
 
-	public void Set_State(UiState state) {// All enum names are to start with an upper case letter and to be in CamelBack.
+	public void setState(UiState state) {// All enum names are to start with an upper case letter and to be in CamelBack, Change method name to meaningful and camel case
 		this.uiState = state; // object, reference and variable names should be camel case
 	}
 
 	
-	public void RuN() {
+	public void runFixBookUi() { // Change method name to meaningful and camel case
 		output("Fix Book Use Case UI\n");
 		
 		while (true) {
@@ -31,13 +31,13 @@ public class FixBookUI {
 			switch (uiState) { // object, reference and variable names should be camel case
 			
 			case READY:
-				String Book_STR = input("Scan Book (<enter> completes): ");
-				if (Book_STR.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): "); // variable name Book_STR change to bookString
+				if (bookString.length() == 0) { // variable name Book_STR change to bookString
 					fixBookControl.SCannING_COMplete();  // object name should be camel case
 				}
 				else {
 					try {
-						int Book_ID = Integer.valueOf(Book_STR).intValue();
+						int Book_ID = Integer.valueOf(bookString).intValue(); // variable name Book_STR change to bookString
 						fixBookControl.Book_scanned(Book_ID); // object name should be camel case
 					}
 					catch (NumberFormatException e) {
@@ -47,12 +47,12 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String AnS = input("Fix Book? (Y/N) : ");
-				boolean FiX = false;
-				if (AnS.toUpperCase().equals("Y")) {
-					FiX = true;
+				String answer = input("Fix Book? (Y/N) : "); // variable name AnS change to answer
+				boolean isFixed = false; // variable name FiX change to isFixed
+				if (answer.toUpperCase().equals("Y")) { // variable name AnS change to answer
+					isFixed = true; // variable name FiX change to isFixed
 				}
-				fixBookControl.FIX_Book(FiX); // object name should be camel case
+				fixBookControl.fixBook(isFixed); // object name should be camel case, Change method name FIX_Book to fixBook, variable name FiX change to isFixed
 				break;
 								
 			case COMPLETED:
