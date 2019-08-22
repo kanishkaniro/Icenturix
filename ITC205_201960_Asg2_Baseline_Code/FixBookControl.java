@@ -1,3 +1,4 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 public class FixBookControl {
 	
 	private FixBookUI fixBookUi; // Change UI to fixBookUi
