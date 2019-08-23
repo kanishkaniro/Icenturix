@@ -22,7 +22,7 @@ public class ReturnBookUI {
 		
 		while (true) {
 			
-			switch (StATe) { // StATe change as state
+			switch (state) { // StATe change as state
 			
 			case INITIALISED:
 				break;
