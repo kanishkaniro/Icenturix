@@ -83,7 +83,7 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
+	public int bookId() { // BookID change as bookId
 		return BOOK_ID;
 	}
 	
@@ -93,7 +93,7 @@ public class library implements Serializable {
 	}
 	
 	
-	private int NextBID() {
+	private int nextBookId() { // NextBID change as meaningfull and according to standard nextBookId
 		return BOOK_ID++;
 	}
 
