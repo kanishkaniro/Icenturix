@@ -3,17 +3,16 @@ import java.util.Scanner;
 
 public class ReturnBookUI {
 
-	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
-
-	private ReturnBookControl CoNtRoL;
+	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED }; 
+	private ReturnBookControl CoNtRoL; // CoNtRoL variable name change as control variable name change according to standard
 	private Scanner input;
-	private UI_STATE StATe;
+	private UI_STATE state; // StATe variable name change as state variable name change according to standard
 
 	
 	public ReturnBookUI(ReturnBookControl control) {
-		this.CoNtRoL = control;
+		this.control = control; // CoNtRoL change as control
 		input = new Scanner(System.in);
-		StATe = UI_STATE.INITIALISED;
+		state = UI_STATE.INITIALISED; // StATe variable name change as state variable name change according to standard
 		control.Set_UI(this);
 	}
 
@@ -23,7 +22,7 @@ public class ReturnBookUI {
 		
 		while (true) {
 			
-			switch (StATe) {
+			switch (state) { // StATe change as state
 			
 			case INITIALISED:
 				break;
@@ -45,9 +44,9 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String ans = input("Is book damaged? (Y/N): ");
+				String answer = input("Is book damaged? (Y/N): "); // ans change to meaningfull name answer
 				boolean Is_Damaged = false;
-				if (ans.toUpperCase().equals("Y")) {					
+				if (answer.toUpperCase().equals("Y")) {	 // ans change to meaningfull name answer				
 					Is_Damaged = true;
 				}
 				CoNtRoL.Discharge_loan(Is_Damaged);
@@ -58,7 +57,7 @@ public class ReturnBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);			
+				throw new RuntimeException("ReturnBookUI : unhandled state :" + state);	// StATe change as state		
 			}
 		}
 	}
@@ -79,8 +78,8 @@ public class ReturnBookUI {
 		output(object);
 	}
 	
-	public void Set_State(UI_STATE state) {
-		this.StATe = state;
+	public void setState(UI_STATE state) { // method name change Set_State to setState
+		this.state = state;// StATe change as state
 	}
 
 	

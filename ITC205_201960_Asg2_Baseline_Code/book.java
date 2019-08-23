@@ -1,64 +1,63 @@
-package ITC205_201960_Asg2_Baseline_Code; // package connect
 import java.io.Serializable;
 
-//Yoshan's change
+
 @SuppressWarnings("serial")
-public class book implements Serializable { 
+public class book implements Serializable {
 	
-	private String TITLE;
-	private String AUTHOR;
-	private String CALLNO;
-	private int ID;
+	private String title;// TITLE change as title   
+	private String author; // AUTHOR change as author
+	private String callNo; // CALLNO change as callNo
+	private int ID; // ID change as id
 	
-	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private STATE State;
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };// STATE change as State
+	private STATE state; // State change as state
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.AUTHOR = author;
-		this.TITLE = title;
-		this.CALLNO = callNo;
-		this.ID = id;
-		this.State = STATE.AVAILABLE;
+		this.author = author;// AUTHOR change as author
+		this.title = title; // TITLE change as title 
+		this.callNo = callNo;  // CALLNO change as callNo
+		this.id = id;  // ID change as id
+		this.state = STATE.AVAILABLE; // State change as state
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(ID).append("\n")
-		  .append("  Title:  ").append(TITLE).append("\n")
-		  .append("  Author: ").append(AUTHOR).append("\n")
-		  .append("  CallNo: ").append(CALLNO).append("\n")
-		  .append("  State:  ").append(State);
+		sb.append("Book: ").append(id).append("\n")// ID change as id
+		  .append("  Title:  ").append(title).append("\n") // TITLE change as title
+		  .append("  Author: ").append(author).append("\n") // AUTHOR change as author
+		  .append("  CallNo: ").append(callNo).append("\n") // CALLNO change as callNo
+		  .append("  State:  ").append(State); // State change as state
 		
 		return sb.toString();
 	}
 
-	public Integer ID() {
+	public Integer id() { // ID() change as id() according to standard
 		return ID;
 	}
 
-	public String TITLE() {
+	public String title() { // TITLE() change as title() according to standard
 		return TITLE;
 	}
 
 
 	
-	public boolean AVAILABLE() {
+	public boolean available() { // AVAILABLE() change as available() according to standard
 		return State == STATE.AVAILABLE;
 	}
 
 	
-	public boolean On_loan() {
+	public boolean onLoan() { // On_loan() change as onLoan() according to standard
 		return State == STATE.ON_LOAN;
 	}
 
 	
-	public boolean IS_Damaged() {
+	public boolean isDamaged() { // IS_Damaged() change as isDamaged() according to standard
 		return State == STATE.DAMAGED;
 	}
 
 	
-	public void Borrow() {
+	public void Borrow() { // Borrow() change as borrow() according to standard
 		if (State.equals(STATE.AVAILABLE)) {
 			State = STATE.ON_LOAN;
 		}

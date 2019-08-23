@@ -7,22 +7,22 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class member implements Serializable {
 
-	private String LN;
-	private String FN;
-	private String EM;
-	private int PN;
-	private int ID;
-	private double FINES;
+	private String lastName; // LN change as lastName according to standard
+	private String firstName; // FN change as firstName according to standard
+	private String email; // EM change as email according to standard
+	private int phoneNo; // PN change as phoneNo according to standard
+	private int id; // ID change as id according to standard
+	private double fines; // FINES change as fines according to standard
 	
 	private Map<Integer, loan> LNS;
 
 	
 	public member(String lastName, String firstName, String email, int phoneNo, int id) {
-		this.LN = lastName;
-		this.FN = firstName;
-		this.EM = email;
-		this.PN = phoneNo;
-		this.ID = id;
+		this.lastName = lastName; // LN change as lastName according to standard
+		this.firstName = firstName; // FN change as firstName according to standard
+		this.email = email; // EM change as email according to standard
+		this.phoneNo = phoneNo; // PM change as phoneNo according to standard
+		this.id = id; // ID change as id according to standard
 		
 		this.LNS = new HashMap<>();
 	}
@@ -45,27 +45,27 @@ public class member implements Serializable {
 	}
 
 	
-	public int GeT_ID() {
+	public int getId() { // GeT_ID change as getId according to standard
 		return ID;
 	}
 
 	
-	public List<loan> GeT_LoAnS() {
+	public List<loan> getLoans() { // method name GeT_LoAnS change as getLoans according to standard
 		return new ArrayList<loan>(LNS.values());
 	}
 
 	
-	public int Number_Of_Current_Loans() {
+	public int numberOfCurrentLoans() { // method name Number_Of_Current_Loans change as numberOfCurrentLoans according to standard
 		return LNS.size();
 	}
 
 	
-	public double Fines_OwEd() {
-		return FINES;
+	public double finesOwEd() { // method name Fines_OwEd change as finesOwEd according to standard
+		return fines; // FINES change as fines according to standard
 	}
 
 	
-	public void Take_Out_Loan(loan loan) {
+	public void Take_Out_Loan(loan loan) { 
 		if (!LNS.containsKey(loan.ID())) {
 			LNS.put(loan.ID(), loan);
 		}
@@ -76,30 +76,30 @@ public class member implements Serializable {
 
 	
 	public String Get_LastName() {
-		return LN;
+		return lastName; // LN change as lastName according to standard
 	}
 
 	
 	public String Get_FirstName() {
-		return FN;
+		return firstName; // FN change as firstName according to standard
 	}
 
 
 	public void Add_Fine(double fine) {
-		FINES += fine;
+		FINES += fine; // FINES change as fines according to standard
 	}
 	
-	public double Pay_Fine(double AmOuNt) {
-		if (AmOuNt < 0) {
+	public double payFine(double amount) { // AmOuNt change as amount according to standard and method name Pay_Fine change as payFine according to standard
+		if (amount < 0) { // AmOuNt change as amount according to standard
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (AmOuNt > FINES) {
-			change = AmOuNt - FINES;
-			FINES = 0;
+		if (amount > fines) { // AmOuNt change as amount according to standard and FINES change as fines according to standard
+			change = amount - fines; // AmOuNt change as amount according to standard and FINES change as fines according to standard
+			fines = 0; // FINES change as fines according to standard
 		}
 		else {
-			FINES -= AmOuNt;
+			fines -= amount; // AmOuNt change as amount according to standard and FINES change as fines according to standard
 		}
 		return change;
 	}

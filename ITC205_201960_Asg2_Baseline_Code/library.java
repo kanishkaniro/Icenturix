@@ -23,11 +23,11 @@ public class library implements Serializable {
 	private static final double maxFinesOwed = 1.0;
 	private static final double damageFee = 2.0;
 	
-	private static library SeLf;
-	private int BOOK_ID;
-	private int MEMBER_ID;
-	private int LOAN_ID;
-	private Date LOAN_DATE;
+	private static library self; // SeLf change as self according to standard
+	private int bookId; // BOOK_ID change as bookId according to standard
+	private int memberId; // MEMBER_ID change as memberId according to standard
+	private int loanId; // LOAN_ID change as loanId according to standard
+	private Date loanDate; // LOAN_DATE change as loanDate according to standard
 	
 	private Map<Integer, book> CATALOG;
 	private Map<Integer, member> MEMBERS;
@@ -49,13 +49,13 @@ public class library implements Serializable {
 
 	
 	public static synchronized library INSTANCE() {		
-		if (SeLf == null) {
+		if (self == null) { // SeLf change as self according to standard
 			Path PATH = Paths.get(libraryFile);			
 			if (Files.exists(PATH)) {	
 				try (ObjectInputStream LiF = new ObjectInputStream(new FileInputStream(libraryFile));) {
 			    
-					SeLf = (library) LiF.readObject();
-					Calendar.INSTANCE().Set_dATE(SeLf.LOAN_DATE);
+					self = (library) LiF.readObject(); //SeLf change as self according to standard
+					Calendar.INSTANCE().Set_dATE(self.LOAN_DATE); //SeLf change as self according to standard
 					LiF.close();
 				}
 				catch (Exception e) {
@@ -83,7 +83,7 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
+	public int bookId() { // BookID change as bookId
 		return BOOK_ID;
 	}
 	
@@ -93,7 +93,7 @@ public class library implements Serializable {
 	}
 	
 	
-	private int NextBID() {
+	private int nextBookId() { // NextBID change as meaningfull and according to standard nextBookId
 		return BOOK_ID++;
 	}
 
