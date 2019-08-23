@@ -3,17 +3,16 @@ import java.util.Scanner;
 
 public class ReturnBookUI {
 
-	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
-
-	private ReturnBookControl CoNtRoL;
+	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED }; 
+	private ReturnBookControl CoNtRoL; // CoNtRoL variable name change as control variable name change according to standard
 	private Scanner input;
-	private UI_STATE StATe;
+	private UI_STATE state; // StATe variable name change as state variable name change according to standard
 
 	
 	public ReturnBookUI(ReturnBookControl control) {
-		this.CoNtRoL = control;
+		this.CoNtRoL = control; // CoNtRoL change as control
 		input = new Scanner(System.in);
-		StATe = UI_STATE.INITIALISED;
+		StATe = UI_STATE.INITIALISED; // StATe variable name change as state variable name change according to standard
 		control.Set_UI(this);
 	}
 
