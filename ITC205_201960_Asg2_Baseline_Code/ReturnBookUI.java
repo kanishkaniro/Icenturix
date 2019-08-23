@@ -57,7 +57,7 @@ public class ReturnBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);			
+				throw new RuntimeException("ReturnBookUI : unhandled state :" + state);	// StATe change as state		
 			}
 		}
 	}
@@ -79,7 +79,7 @@ public class ReturnBookUI {
 	}
 	
 	public void setState(UI_STATE state) { // method name change Set_State to setState
-		this.StATe = state;
+		this.state = state;// StATe change as state
 	}
 
 	
