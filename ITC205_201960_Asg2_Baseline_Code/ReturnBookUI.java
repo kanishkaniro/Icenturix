@@ -10,9 +10,9 @@ public class ReturnBookUI {
 
 	
 	public ReturnBookUI(ReturnBookControl control) {
-		this.CoNtRoL = control; // CoNtRoL change as control
+		this.control = control; // CoNtRoL change as control
 		input = new Scanner(System.in);
-		StATe = UI_STATE.INITIALISED; // StATe variable name change as state variable name change according to standard
+		state = UI_STATE.INITIALISED; // StATe variable name change as state variable name change according to standard
 		control.Set_UI(this);
 	}
 
