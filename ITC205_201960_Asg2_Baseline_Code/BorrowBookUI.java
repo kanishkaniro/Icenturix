@@ -1,116 +1,117 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 import java.util.Scanner;
 
 
 public class BorrowBookUI {
 	
-	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };// All enum names are to start with an upper case letter and to be in CamelBack. 
 
-	private BorrowBookControl CONTROL;
-	private Scanner input;
-	private UI_STATE StaTe;
+	private BorrowBookControl borrowBookControl; // All class object should be meaningful and camel case
+	private Scanner scannerInput; // variable or object names should be meaningful 
+	private UiState uiState;// All enum names are to start with an upper case letter and to be in CamelBack. 
 
 	
 	public BorrowBookUI(BorrowBookControl control) {
 		this.CONTROL = control;
-		input = new Scanner(System.in);
-		StaTe = UI_STATE.INITIALISED;
+		scannerInput = new Scanner(System.in); // variable or object names should be meaningful 
+		uiState = UiState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack. 
 		control.setUI(this);
 	}
 
 	
-	private String input(String prompt) {
+	private String inputString(String prompt) { // change method name input to inputString
 		System.out.print(prompt);
-		return input.nextLine();
+		return scannerInput.nextLine();// variable or object names should be meaningful 
 	}	
 		
 		
-	private void output(Object object) {
+	private void showOutput(Object object) { // change method name output to meaningful name - showOutput
 		System.out.println(object);
 	}
 	
 			
-	public void Set_State(UI_STATE STATE) {
-		this.StaTe = STATE;
+	public void setState(UiState state) {// All enum names are to start with an upper case letter and to be in CamelBack. , change method name
+		this.uiState = state;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 
 	
 	public void run() {
-		output("Borrow Book Use Case UI\n");
+		showOutput("Borrow Book Use Case UI\n"); // change method name output to meaningful name - showOutput
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			switch (uiState) {	// All enum names are to start with an upper case letter and to be in CamelBack. 		
 			
 			case CANCELLED:
-				output("Borrowing Cancelled");
+				showOutput("Borrowing Cancelled");// change method name output to meaningful name - showOutput
 				return;
 
 				
 			case READY:
-				String MEM_STR = input("Swipe member card (press <enter> to cancel): ");
-				if (MEM_STR.length() == 0) {
+				String memberCardNo = inputString("Swipe member card (press <enter> to cancel): "); // change method name input to inputString, change MEM_STR to memberCardNo
+				if (memberCardNo.length() == 0) { // change MEM_STR to memberCardNo
 					CONTROL.cancel();
 					break;
 				}
 				try {
-					int Member_ID = Integer.valueOf(MEM_STR).intValue();
-					CONTROL.Swiped(Member_ID);
+					int memberId = Integer.valueOf(memberCardNo).intValue();// change MEM_STR to memberCardNo, change Member_ID to memberId
+					CONTROL.Swiped(memberId); // change Member_ID to memberId
 				}
 				catch (NumberFormatException e) {
-					output("Invalid Member Id");
+					showOutput("Invalid Member Id");// change method name output to meaningful name - showOutput
 				}
 				break;
 
 				
 			case RESTRICTED:
-				input("Press <any key> to cancel");
+				inputString("Press <any key> to cancel"); // change method name input to inputString
 				CONTROL.cancel();
 				break;
 			
 				
 			case SCANNING:
-				String Book_Str = input("Scan Book (<enter> completes): ");
-				if (Book_Str.length() == 0) {
+				String bookName = inputString("Scan Book (<enter> completes): "); // variable should be camel case,  change method name input to inputString
+				if (bookName.length() == 0) { // variable should be camel case
 					CONTROL.Complete();
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(Book_Str).intValue();
-					CONTROL.Scanned(BiD);
+					int bookId = Integer.valueOf(bookName).intValue(); // variable should be camel case
+					CONTROL.Scanned(bookId); // variable should be camel case
 					
 				} catch (NumberFormatException e) {
-					output("Invalid Book Id");
+					showOutput("Invalid Book Id");// change method name output to meaningful name - showOutput
 				} 
 				break;
 					
 				
 			case FINALISING:
-				String Ans = input("Commit loans? (Y/N): ");
-				if (Ans.toUpperCase().equals("N")) {
+				String answer = inputString("Commit loans? (Y/N): "); // variable should be camel case,  change method name input to inputString
+				if (answer.toUpperCase().equals("N")) { // variable should be camel case
 					CONTROL.cancel();
 					
 				} else {
-					CONTROL.Commit_LOans();
-					input("Press <any key> to complete ");
+					CONTROL.commitLoans(); // change method name to camel case
+					inputString("Press <any key> to complete "); // change method name input to inputString
 				}
 				break;
 				
 				
 			case COMPLETED:
-				output("Borrowing Completed");
+				showOutput("Borrowing Completed");// change method name output to meaningful name - showOutput
 				return;
 	
 				
 			default:
-				output("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				showOutput("Unhandled state");// change method name output to meaningful name - showOutput
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + uiState);// All enum names are to start with an upper case letter and to be in CamelBack. 			
 			}
 		}		
 	}
 
 
-	public void Display(Object object) {
-		output(object);		
+	public void display(Object object) {//change method name Display to display
+		showOutput(object);		// change method name output to meaningful name - showOutput
 	}
 
 

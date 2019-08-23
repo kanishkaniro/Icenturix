@@ -1,67 +1,68 @@
+//Author: Kanishka, Mediator: Yoshan, Reviewer: Lahiru
 public class FixBookControl {
 	
-	private FixBookUI UI;
-	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
-	private CONTROL_STATE StAtE;
+	private FixBookUI fixBookUi; // Change UI to fixBookUi
+	private enum ControlState { INITIALISED, READY, FIXING };// All enum names are to start with an upper case letter and to be in CamelBack. 
+	private ControlState controlState;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	
-	private library LIB;
-	private book Cur_Book;
+	private Library library; // library class name should be Library, LIB object name should be library
+	private Book book; // book class name should be Book, Cur_Book object name should be meaningful and camel case
 
 
 	public FixBookControl() {
-		this.LIB = LIB.INSTANCE();
-		StAtE = CONTROL_STATE.INITIALISED;
+		this.library = library.INSTANCE(); // LIB object name should be library
+		controlState = ControlState.INITIALISED;// All enum names are to start with an upper case letter and to be in CamelBack. 
 	}
 	
 	
-	public void Set_Ui(FixBookUI ui) {
-		if (!StAtE.equals(CONTROL_STATE.INITIALISED)) {
+	public void setFixBookUi(FixBookUI bookUi) { // Change method name to meaningful and camel case, change ui object name to bookUi
+		if (!controlState.equals(ControlState.INITIALISED)) {// All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("FixBookControl: cannot call setUI except in INITIALISED state");
 		}	
-		this.UI = ui;
-		ui.Set_State(FixBookUI.UI_STATE.READY);
-		StAtE = CONTROL_STATE.READY;		
+		this.fixBookUi = bookUi;  // Change UI to fixBookUi, change ui object name to bookUi
+		bookUi.setState(FixBookUI.UiState.READY);// change ui object name to bookUi, change Set_State method name to setState, All enum names are to start with an upper case letter and to be in CamelBack. 
+		controlState = ControlState.READY;// All enum names are to start with an upper case letter and to be in CamelBack. 		
 	}
 
 
-	public void Book_scanned(int bookId) {
-		if (!StAtE.equals(CONTROL_STATE.READY)) {
+	public void bookScanned(int bookId) { // Change method name to meaningful and camel case
+		if (!controlState.equals(ControlState.READY)) {// All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
 		}	
-		Cur_Book = LIB.Book(bookId);
+		book = library.Book(bookId); // LIB object name should be library,Cur_Book object name should be meaningful and camel case
 		
-		if (Cur_Book == null) {
-			UI.display("Invalid bookId");
+		if (book == null) { // Cur_Book object name should be meaningful and camel case
+			fixBookUi.display("Invalid bookId"); // Change UI to fixBookUi
 			return;
 		}
-		if (!Cur_Book.IS_Damaged()) {
-			UI.display("Book has not been damaged");
+		if (!book.isDamage()) {//Cur_Book object name should be meaningful and camel case, Change IS_Damaged method to isDamage
+			fixBookUi.display("Book has not been damaged"); // Change UI to fixBookUi
 			return;
 		}
-		UI.display(Cur_Book.toString());
-		UI.Set_State(FixBookUI.UI_STATE.FIXING);
-		StAtE = CONTROL_STATE.FIXING;		
+		fixBookUi.display(book.toString()); // Change UI to fixBookUi, Cur_Book object name should be meaningful and camel case
+		fixBookUi.setState(FixBookUI.UiState.FIXING); // Change UI to fixBookUi, change Set_State method name to setState, All enum names are to start with an upper case letter and to be in CamelBack. 
+		controlState = ControlState.FIXING;	// All enum names are to start with an upper case letter and to be in CamelBack. 	
 	}
 
 
-	public void FIX_Book(boolean MUST_fix) {
-		if (!StAtE.equals(CONTROL_STATE.FIXING)) {
+	public void fixBook(boolean isFixed) { // Change method name to meaningful and camel case
+		if (!controlState.equals(ControlState.FIXING)) {// All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
 		}	
-		if (MUST_fix) {
-			LIB.Repair_BOOK(Cur_Book);
+		if (isFixed) { // Change variable to meaningful and camel case
+			library.repairBook(book); // LIB object name should be library, Cur_Book object name should be meaningful and camel case, change Repair_BOOK method name to repairBook
 		}
-		Cur_Book = null;
-		UI.Set_State(FixBookUI.UI_STATE.READY);
-		StAtE = CONTROL_STATE.READY;		
+		book = null;//Cur_Book object name should be meaningful and camel case
+		fixBookUi.setState(FixBookUI.UiState.READY); // Change UI to fixBookUi, change Set_State method name to setState, All enum names are to start with an upper case letter and to be in CamelBack. 
+		controlState = ControlState.READY;// All enum names are to start with an upper case letter and to be in CamelBack. 		
 	}
 
 	
-	public void SCannING_COMplete() {
-		if (!StAtE.equals(CONTROL_STATE.READY)) {
+	public void completeScanning() { // Change method name to meaningful and camel case
+		if (!controlState.equals(ControlState.READY)) {// All enum names are to start with an upper case letter and to be in CamelBack. 
 			throw new RuntimeException("FixBookControl: cannot call scanningComplete except in READY state");
 		}	
-		UI.Set_State(FixBookUI.UI_STATE.COMPLETED);		
+		fixBookUi.setState(FixBookUI.UiState.COMPLETED);	 // Change UI to fixBookUi, change Set_State method name to setState, All enum names are to start with an upper case letter and to be in CamelBack. 	
 	}
 
 
