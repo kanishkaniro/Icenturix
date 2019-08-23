@@ -13,7 +13,7 @@ public class PayFineControl {
 	}
 	
 	
-	public void Set_UI(PayFineUI ui) {
+	public void setUi(PayFineUI ui) { // Set_UI changed to setUi
 		if (!state.equals(ControlState.INITIALISED)) { // CONTROL_STATE changed to ControlState  // StAtE changed to state
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
