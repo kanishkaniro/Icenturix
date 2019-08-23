@@ -78,7 +78,7 @@ public class ReturnBookUI {
 		output(object);
 	}
 	
-	public void Set_State(UI_STATE state) {
+	public void setState(UI_STATE state) { // method name change Set_State to setState
 		this.StATe = state;
 	}
 
