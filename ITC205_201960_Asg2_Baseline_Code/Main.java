@@ -4,45 +4,45 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner IN;
-	private static library LIB;
-	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	private static Scanner scanner; // variable names are to start with a lowercase letter and to be in camelBack
+	private static Library library; // variable names are to start with a lowercase letter and to be in camelBack
+	private static String menu; // variable names are to start with a lowercase letter and to be in camelBack
+	private static Calendar calendar; // variable names are to be meaningful and start with a lowercase letter and to be in camelBack
+	private static SimpleDateFormat simpleDateFormat; // variable names are to be meaningful and start with a lowercase letter and to be in camelBack
 	
 	
-	private static String Get_menu() {
-		StringBuilder sb = new StringBuilder();
+	private static String getMenu() {  // changed method Get_menu() uppercase to lowercase
+		StringBuilder stringBuilder = new StringBuilder(); // sb to stringBuilder. Meaningful variable name
 		
-		sb.append("\nLibrary Main Menu\n\n")
-		  .append("  M  : add member\n")
-		  .append("  LM : list members\n")
-		  .append("\n")
-		  .append("  B  : add book\n")
-		  .append("  LB : list books\n")
-		  .append("  FB : fix books\n")
-		  .append("\n")
-		  .append("  L  : take out a loan\n")
-		  .append("  R  : return a loan\n")
-		  .append("  LL : list loans\n")
-		  .append("\n")
-		  .append("  P  : pay fine\n")
-		  .append("\n")
-		  .append("  T  : increment date\n")
-		  .append("  Q  : quit\n")
-		  .append("\n")
-		  .append("Choice : ");
+		stringBuilder.append("\nLibrary Main Menu\n\n") // sb to stringBuilder. Meaningful variable name
+					 .append("  M  : add member\n")
+					 .append("  LM : list members\n")
+					 .append("\n")
+					 .append("  B  : add book\n")
+					 .append("  LB : list books\n")
+					 .append("  FB : fix books\n")
+					 .append("\n")
+					 .append("  L  : take out a loan\n")
+					 .append("  R  : return a loan\n")
+					 .append("  LL : list loans\n")
+					 .append("\n")
+					 .append("  P  : pay fine\n")
+					 .append("\n")
+					 .append("  T  : increment date\n")
+					 .append("  Q  : quit\n")
+					 .append("\n")
+					 .append("Choice : ");
 		  
-		return sb.toString();
+		return stringBuilder.toString(); // sb to stringBuilder. Meaningful variable name
 	}
 
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = library.INSTANCE();
-			CAL = Calendar.INSTANCE();
-			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			scanner = new Scanner(System.in); // variable names are to start with a lowercase letter and to be in camelBack
+			library = Library.INSTANCE(); // variable names are to start with a lowercase letter and to be in camelBack
+			calendar = Calendar.INSTANCE(); // variable names are to start with a lowercase letter and to be in camelBack
+			simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // variable names are to start with a lowercase letter and to be in camelBack
 	
 			for (member m : LIB.MEMBERS()) {
 				output(m);
@@ -52,16 +52,16 @@ public class Main {
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			menu = getMenu(); // changed method Get_menu() uppercase to lowercase
 			
-			boolean e = false;
+			boolean status = false; // variable names are to be meaningful. e changed to status
 			
-			while (!e) {
+			while (!status ) { // variable names are to be meaningful. e changed to status
 				
-				output("\n" + SDF.format(CAL.Date()));
-				String c = input(MENU);
+				output("\n" + simpleDateFormat.format(calendar.Date())); // sb to stringBuilder. Meaningful variable name
+				String bookItem = input(menu); // variable names are to be meaningful. c changed to bookItem
 				
-				switch (c.toUpperCase()) {
+				switch (bookItem.toUpperCase()) { // variable names are to be meaningful. c changed to bookItem 
 				
 				case "M": 
 					ADD_MEMBER();
@@ -104,7 +104,7 @@ public class Main {
 					break;
 					
 				case "Q": 
-					e = true;
+					status = true; // variable names are to be meaningful. e changed to status
 					break;
 					
 				default: 
@@ -120,12 +120,12 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void FINES() {
+		private static void fines() { // method names are to start with a lowercase letter and to be in camelBack
 		new PayFineUI(new PayFineControl()).RuN();		
 	}
 
 
-	private static void CURRENT_LOANS() {
+	private static void currentLoans() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (loan loan : LIB.CurrentLoans()) {
 			output(loan + "\n");
@@ -134,7 +134,7 @@ public class Main {
 
 
 
-	private static void BOOKS() {
+	private static void listBooks() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (book book : LIB.BOOKS()) {
 			output(book + "\n");
@@ -143,7 +143,7 @@ public class Main {
 
 
 
-	private static void MEMBERS() {
+	private static void listMembers() { // method names are to start with a lowercase letter and to be in camelBack
 		output("");
 		for (member member : LIB.MEMBERS()) {
 			output(member + "\n");
@@ -152,22 +152,22 @@ public class Main {
 
 
 
-	private static void BORROW_BOOK() {
+	private static void borrowBook() { // method names are to start with a lowercase letter and to be in camelBack
 		new BorrowBookUI(new BorrowBookControl()).run();		
 	}
 
 
-	private static void RETURN_BOOK() {
-		new ReturnBookUI(new ReturnBookControl()).RuN();		
+	private static void returnBook() { // method names are to start with a lowercase letter and to be in camelBack
+		new ReturnBookUI(new ReturnBookControl()).run(); // RuN changed to run	
 	}
 
 
-	private static void FIX_BOOKS() {
-		new FixBookUI(new FixBookControl()).RuN();		
+	private static void fixBooks() { // method names are to start with a lowercase letter and to be in camelBack
+		new FixBookUI(new FixBookControl()).run();// RuN changed to run
 	}
 
 
-	private static void INCREMENT_DATE() {
+	private static void incrementDate() { // method names are to start with a lowercase letter and to be in camelBack
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
@@ -180,7 +180,7 @@ public class Main {
 	}
 
 
-	private static void ADD_BOOK() {
+	private static void addBook() { // method names are to start with a lowercase letter and to be in camelBack
 		
 		String A = input("Enter author: ");
 		String T  = input("Enter title: ");
@@ -191,14 +191,14 @@ public class Main {
 	}
 
 	
-	private static void ADD_MEMBER() {
+	private static void addMember() { // method names are to start with a lowercase letter and to be in camelBack
 		try {
-			String LN = input("Enter last name: ");
-			String FN  = input("Enter first name: ");
-			String EM = input("Enter email: ");
-			int PN = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member M = LIB.Add_mem(LN, FN, EM, PN);
-			output("\n" + M + "\n");
+			String lastName = input("Enter last name: "); // variable names changed to lastName
+			String firstName  = input("Enter first name: "); // variable names changed to firstName
+			String email = input("Enter email: "); // variable names changed to email
+			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue(); // variable names changed to phoneNo
+			Member member = LIB.Add_mem(lastName, firstName, email, phoneNo); // variable names changed to member
+			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");

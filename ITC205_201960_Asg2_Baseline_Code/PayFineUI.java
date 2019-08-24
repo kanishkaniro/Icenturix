@@ -4,32 +4,32 @@ import java.util.Scanner;
 public class PayFineUI {
 
 
-	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // enum names are to start with an uppercase letter and to be in CamelBack
 
-	private PayFineControl CoNtRoL;
+	private PayFineControl payFineControl; // CoNtRoL changed to payFineControl
 	private Scanner input;
-	private UI_STATE StAtE;
+	private UiState state; // enum names are to start with an uppercase letter and to be in CamelBack // StAtE changed to state
 
 	
 	public PayFineUI(PayFineControl control) {
-		this.CoNtRoL = control;
+		this.payFineControl = control; // CoNtRoL changed to payFineControl
 		input = new Scanner(System.in);
-		StAtE = UI_STATE.INITIALISED;
+		state = UiState.INITIALISED; // enum names are to start with an uppercase letter and to be in CamelBack // StAtE changed to state
 		control.Set_UI(this);
 	}
 	
 	
-	public void Set_State(UI_STATE state) {
-		this.StAtE = state;
+	public void setState(UiState state) { // UI_STATE changed to UiState // Set_State changed to setState
+		this.state = state; // StAtE changed to state
 	}
 
 
-	public void RuN() {
+	public void run() { // Method name RuN changed to run
 		output("Pay Fine Use Case UI\n");
 		
 		while (true) {
 			
-			switch (StAtE) {
+			switch (state) { // StAtE changed to state
 			
 			case READY:
 				String Mem_Str = input("Swipe member card (press <enter> to cancel): ");
@@ -39,7 +39,7 @@ public class PayFineUI {
 				}
 				try {
 					int Member_ID = Integer.valueOf(Mem_Str).intValue();
-					CoNtRoL.Card_Swiped(Member_ID);
+					payFineControl.Card_Swiped(Member_ID); // CoNtRoL changed to payFineControl
 				}
 				catch (NumberFormatException e) {
 					output("Invalid memberId");
@@ -47,21 +47,21 @@ public class PayFineUI {
 				break;
 				
 			case PAYING:
-				double AmouNT = 0;
+				double amount = 0; // variable names are to start with a lowercase letter
 				String Amt_Str = input("Enter amount (<Enter> cancels) : ");
 				if (Amt_Str.length() == 0) {
-					CoNtRoL.CaNcEl();
+					payFineControl.CaNcEl();  // CoNtRoL changed to payFineControl
 					break;
 				}
 				try {
-					AmouNT = Double.valueOf(Amt_Str).doubleValue();
+					amount = Double.valueOf(Amt_Str).doubleValue(); // variable names are to start with a lowercase letter
 				}
 				catch (NumberFormatException e) {}
-				if (AmouNT <= 0) {
+				if (amount <= 0) {
 					output("Amount must be positive");
 					break;
 				}
-				CoNtRoL.PaY_FiNe(AmouNT);
+				payFineControl.PaY_FiNe(amount); // CoNtRoL changed to payFineControl
 				break;
 								
 			case CANCELLED:
@@ -74,7 +74,7 @@ public class PayFineUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
 			
 			}		
 		}		
@@ -92,7 +92,7 @@ public class PayFineUI {
 	}	
 			
 
-	public void DiSplAY(Object object) {
+	public void DiSplAY(Object object) { // Method name DiSplAY changed to display
 		output(object);
 	}
 
